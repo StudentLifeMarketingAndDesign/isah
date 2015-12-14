@@ -12,10 +12,13 @@ class SexualAssaultProjectDirectory extends Page {
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 
+
+
 		$countyGridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$countyGridField       = new GridField('Counties', 'Counties', County::get(), $countyGridFieldConfig);
+		$f->addFieldToTab("Root.Counties", $countyGridField);
 
-		$f->addFieldToTab("Root.Counties", $countyGridField, "Content");
+		
 		return $f;
 	}
 }
