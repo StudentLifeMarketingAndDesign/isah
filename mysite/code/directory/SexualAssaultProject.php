@@ -18,6 +18,8 @@ class SexualAssaultProject extends Page {
 		'Counties' => 'County',
 	);
 
+	private static $singular_name = 'Project';
+
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 

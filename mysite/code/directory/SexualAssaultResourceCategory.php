@@ -9,6 +9,8 @@ class SexualAssaultResourceCategory extends DataObject {
 	private static $extensions = array(
 		'SexualAssaultProjectDirectoryURLSegmentExtension',
 	);
+
+	private static $singular_name     = 'ResourceCategory';
 	private static $belongs_many_many = array(
 		'Resources' => 'SexualAssaultResource',
 	);

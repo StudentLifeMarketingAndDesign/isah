@@ -9,6 +9,8 @@ class SexualAssaultProjectDirectory extends Page {
 		'SexualAssaultProject',
 	);
 
+	private static $singular_name = 'ProjectDirectory';
+
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 

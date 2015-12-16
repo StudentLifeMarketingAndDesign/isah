@@ -58,7 +58,6 @@ function showPosition(position) {
         var county = getCounty(results[0]);
         document.getElementById('County').innerHTML = 'County: ' + county;
         var countyName = county.replace("County", "");
-        alert(countyName);
         $("#Form_CountyForm_County").val(countyName);
       }
     });
