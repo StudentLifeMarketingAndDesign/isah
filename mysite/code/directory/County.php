@@ -23,4 +23,5 @@ class County extends DataObject {
 	private static $summary_fields = array(
 		'Title', 'Region', 'URLSegment',
 	);
+
 }

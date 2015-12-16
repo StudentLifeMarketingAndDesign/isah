@@ -26,7 +26,7 @@ class SexualAssaultResource extends DataObject {
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 
-		$catField = TagField::create('Counties', 'Counties', County::get(), $this->Counties())->setShouldLazyLoad(true);
+		$catField = TagField::create('Categories', 'Categories', SexualAssaultResourceCategory::get(), $this->Categories())->setShouldLazyLoad(true);
 		//$f->addFieldToTab('Root.Main', $catField, 'Content');
 
 		return $f;
