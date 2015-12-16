@@ -1,0 +1,7 @@
+---
+Name: isahroutes
+After: framework/routes#coreroutes
+---
+Director:
+  rules:
+    'countyrsearch' : 'CountyController'
