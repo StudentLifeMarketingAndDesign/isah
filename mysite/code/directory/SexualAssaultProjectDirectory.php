@@ -12,44 +12,44 @@ class SexualAssaultProjectDirectory extends Page {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-
-
 		$countyGridFieldConfig = GridFieldConfig_RecordEditor::create();
 		$countyGridField       = new GridField('Counties', 'Counties', County::get(), $countyGridFieldConfig);
-		$f->addFieldToTab("Root.Counties", $countyGridField);
+		$fields->addFieldToTab("Root.Counties", $countyGridField);
+
+		return $fields;
+	}
 
 }
 
-
 class SexualAssaultProjectDirectory_Controller extends Page_Controller {
 
-    private static $allowed_actions = array(
-        'CountyForm'
-    );
+	private static $allowed_actions = array(
+		'CountyForm',
+	);
 
-    public function CountyForm() {
+	public function CountyForm() {
 
-    	$fields = new FieldList(
-    		DropdownField::create('County','County', SexualAssaultProject::get('County')->map('Title', 'Title'))->setEmptyString('(Select one)'
-    		));
+		$fields = new FieldList(
+			DropdownField::create('County', 'County', SexualAssaultProject::get('County')->map('Title', 'Title'))->setEmptyString('(Select one)'
+			));
 
-    	$actions = new FieldList(
-            FormAction::create("getCountyInfo")->setTitle("Submit")
-        );
+		$actions = new FieldList(
+			FormAction::create("getCountyInfo")->setTitle("Submit")
+		);
 
-        $required = new RequiredFields('County');
+		$required = new RequiredFields('County');
 
-        $form = new Form($this, 'CountyForm', $fields, $actions, $required);
+		$form = new Form($this, 'CountyForm', $fields, $actions, $required);
 
-        return $form;
-    }
+		return $form;
+	}
 
-    public function getCountyInfo($data, Form $form) {
-    	$County = $data['County'];
+	public function getCountyInfo($data, Form $form) {
+		$County = $data['County'];
 
-    	$form->sessionMessage('Hello '. $data['County'], 'success');
+		$form->sessionMessage('Hello '.$data['County'], 'success');
 
-    	return $this->redirectBack();
-    }
+		return $this->redirectBack();
+	}
 
 }

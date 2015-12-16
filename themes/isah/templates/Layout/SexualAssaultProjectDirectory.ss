@@ -1,18 +1,35 @@
 <% include BackgroundImage %>
 <div class="gradient">
-	<div class="container clearfix">
-		<div class="white-cover"></div>
-
-            
-
-	    <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
-	    	$Breadcrumbs
-	    	$Content
-	    	$Form
-
-
+  <div class="container clearfix">
+    <div class="white-cover"></div>
+      <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
+        $Breadcrumbs
+        $Content
+        $Form
 <button onclick="getLocation()">Get County</button>
 <div id="mapholder"></div>
+      <p id="demo"></p>
+        $CountyForm
+        <span id="County">Click on "Get County" or select a County </span>
+
+
+
+      </section>
+      <section class="sec-content hide-print">
+        <% include SideNav %>
+      </section>
+  </div>
+</div>
+<% include TopicsAndNews %> 
+
+
+
+
+
+
+
+
+<%-- 41.663475,-91.5378082 --%>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
@@ -28,6 +45,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
+    x.innerHTML = "Location found."
     lat = position.coords.latitude;
     lon = position.coords.longitude;
     latlon = new google.maps.LatLng(lat, lon);
@@ -40,6 +58,7 @@ function showPosition(position) {
         var county = getCounty(results[0]);
         document.getElementById('County').innerHTML = 'County: ' + county;
         var countyName = county.replace("County", "");
+        alert(countyName);
         $("#Form_CountyForm_County").val(countyName);
       }
     });
@@ -93,16 +112,3 @@ function getCounty(geocodeResponse) {
 }
 
 </script>
-
-        $CountyForm
-        <span id="County">Click on "Get County" or select a County </span>
-
-	    <section class="sec-content hide-print">
-	    	<% include SideNav %>
-	    </section>
-	</div>
-</div>
-<% include TopicsAndNews %> 
-
-
-<%-- 41.663475,-91.5378082 --%>
