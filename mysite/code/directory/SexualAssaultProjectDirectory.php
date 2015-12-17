@@ -27,16 +27,37 @@ class SexualAssaultProjectDirectory_Controller extends Page_Controller {
 
 	private static $allowed_actions = array(
 		'CountyForm',
+		'load',
 	);
+
+	private static $url_handlers = array(
+		'load/$Name' => 'load',
+	);
+
+	public function load() {
+		$countyName = $this->getRequest()->param('Name');
+
+		if (is_numeric($countyName)) {
+			$county = County::get_by_id('County', $countyName);
+		} else {
+			$county = County::get()->filter(array(
+					'Title:PartialMatch' => $countyName,
+				))->First();
+		}
+
+		$data = new ArrayData(array('County' => $county));
+
+		return $this->customise($data)->renderWith('CountyRequest');
+	}
 
 	public function CountyForm() {
 
 		$fields = new FieldList(
-			DropdownField::create('County', 'County', SexualAssaultProject::get('County')->map('Title', 'Title'))->setEmptyString('(Select one)'
+			DropdownField::create('County', 'County', SexualAssaultProject::get('County')->map('ID', 'Title'))->setEmptyString('(Select one)'
 			));
 
 		$actions = new FieldList(
-			FormAction::create("getCountyInfo")->setTitle("Submit")
+			//FormAction::create("getCountyInfo")->setTitle("Submit")
 		);
 
 		$required = new RequiredFields('County');

@@ -6,13 +6,16 @@
         $Breadcrumbs
         $Content
         $Form
-<button onclick="getLocation()">Get County</button>
+<button id="get-location">Get County</button>
 <div id="mapholder"></div>
       <p id="demo"></p>
+              <span id="County">Click on "Get County" or select a County </span>
+
         $CountyForm
-        <span id="County">Click on "Get County" or select a County </span>
 
+        <div id="results">
 
+        </div>
 
       </section>
       <section class="sec-content hide-print">
@@ -32,17 +35,75 @@
 <%-- 41.663475,-91.5378082 --%>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+
+
+
     <script>
+
+$(document).ready(function() {
+  $('#Form_CountyForm_County').on('change', function(e){
+      $('#results').load('directory/load/'+ $('#Form_CountyForm_County').val());
+  });
+  $('#get-location').on('click', function(e){
+      getLocation();
+  });
+});
+
 var geocoder;  // this object will handle the position<->address conversion
 var x = document.getElementById("demo");
+//var countyName;
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError); // , {maximumAge:60000, timeout:5000, enableHighAccuracy:true}
+        navigator.geolocation.getCurrentPosition(locationSuccess, showError); // , {maximumAge:60000, timeout:5000, enableHighAccuracy:true}
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
+
+
+function locationSuccess(position){
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      latlon = new google.maps.LatLng(lat, lon);
+
+      geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'latLng': latlon}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+
+          var county = getCounty(results[0]);
+          document.getElementById('County').innerHTML = 'County: ' + county;
+
+          var countyName = county.replace("County", "");
+          $('#results').load('directory/load/'+ countyName);
+          
+        }
+      });
+  //showPosition(position);
+}
+
+function getGeocodedCountyNameFromPosition(position){
+    
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      latlon = new google.maps.LatLng(lat, lon);
+
+      geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'latLng': latlon}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+
+          var county = getCounty(results[0]);
+          document.getElementById('County').innerHTML = 'County: ' + county;
+
+          countyName = county.replace("County", "");
+          
+        }
+      });
+
+}
+
 
 function showPosition(position) {
     x.innerHTML = "Location found."
@@ -52,15 +113,7 @@ function showPosition(position) {
     // okay, now we have the position (as a google maps latLng object), 
     // now we send this position to geocoder
     // @see  https://developers.google.com/maps/documentation/javascript/geocoding
-    geocoder = new google.maps.Geocoder();
-    geocoder.geocode({'latLng': latlon}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        var county = getCounty(results[0]);
-        document.getElementById('County').innerHTML = 'County: ' + county;
-        var countyName = county.replace("County", "");
-        $("#Form_CountyForm_County").val(countyName);
-      }
-    });
+
 
     mapholder = document.getElementById('mapholder');
     mapholder.style.height = '250px';
