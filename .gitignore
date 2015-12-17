@@ -44,3 +44,5 @@ siteconfig/
 reports/
 segment-field/
 silverstripe-cache/
+keys.yml
+addressable/

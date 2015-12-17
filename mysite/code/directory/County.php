@@ -24,4 +24,6 @@ class County extends DataObject {
 		'Title', 'Region', 'URLSegment',
 	);
 
+	private static $default_sort = "Title ASC";
+
 }

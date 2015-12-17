@@ -10,13 +10,18 @@ class SexualAssaultProjectDirectory extends Page {
 	);
 
 	private static $singular_name = 'ProjectDirectory';
-
+	private static $icon          = 'cms/images/treeicons/book-openfolder.gif';
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
+		$fields->removeByName('Content');
+		$fields->removeByName('BackgroundImage');
+		$fields->removeByName('Metadata');
 
 		$countyGridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$countyGridField       = new GridField('Counties', 'Counties', County::get(), $countyGridFieldConfig);
-		$fields->addFieldToTab("Root.Counties", $countyGridField);
+		$countyGridFieldConfig->getComponentByType('GridFieldPaginator')->setItemsPerPage(100);
+
+		$countyGridField = new GridField('Counties', 'Counties', County::get(), $countyGridFieldConfig);
+		$fields->addFieldToTab("Root.Main", $countyGridField);
 
 		return $fields;
 	}

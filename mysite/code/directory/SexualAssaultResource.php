@@ -3,8 +3,8 @@
 class SexualAssaultResource extends DataObject {
 
 	private static $db = array(
-		'Title'           => 'Varchar(155)',
-		'Address'         => 'HTMLText',
+		'Title' => 'Varchar(155)',
+		//'Address'         => 'HTMLText',
 		'Phone'           => 'Text',
 		'Email'           => 'Text',
 		'Website'         => 'Text',
@@ -24,10 +24,24 @@ class SexualAssaultResource extends DataObject {
 	);
 
 	public function getCMSFields() {
-		$f = parent::getCMSFields();
+		//$f = parent::getCMSFields();
 
+		$f = new FieldList();
+		$f->push(new TextField('Title', 'Title'));
 		$catField = TagField::create('Categories', 'Categories', SexualAssaultResourceCategory::get(), $this->Categories())->setShouldLazyLoad(true);
-		//$f->addFieldToTab('Root.Main', $catField, 'Content');
+		$f->push($catField);
+
+		$f->push(new TextField('Phone', 'Phone number'));
+		$f->push(new TextField('Email', 'Email Address'));
+		$f->push(new TextField('Website', 'Website URL (please include the http:// or https://)'));
+
+		$addrFields = $this->getAddressFields();
+		foreach ($addrFields as $field) {
+			$f->push($field);
+		}
+
+		$f->removeByName('Suburb');
+		$f->renameField('Postcode', 'ZIP code');
 
 		return $f;
 	}

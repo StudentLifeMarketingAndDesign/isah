@@ -10,4 +10,7 @@ Page:
 Page_Controller:
   extensions:
     - DivisionPage_Controller
-
+SexualAssaultResource:
+  extensions:
+    - Addressable
+    - Geocodable
