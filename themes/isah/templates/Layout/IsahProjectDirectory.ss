@@ -57,6 +57,7 @@ $(document).ready(function() {
       $('#results').load('directory/load/'+ $('#Form_CountyForm_County').val());
   });
   $('#get-location').on('click', function(e){
+      //$('#results').innerHTML = 'Loading...';
       getLocation();
   });
 });

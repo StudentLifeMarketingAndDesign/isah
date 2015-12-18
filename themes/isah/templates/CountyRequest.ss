@@ -1,4 +1,4 @@
-<% if $County.Resources %>
+<% if $County.Resources || $County.Project %>
 	<% with $County %>
 	<p>Showing results for $Title County:</p>
 	
