@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "546a28642795b81c1c0da88659b6f43f",
-    "content-hash": "1953d03dcc910c28a2e8e1acf99be217",
+    "hash": "aba3c9585c41b6fba7cb9c38e3feef34",
+    "content-hash": "de0e7d8a2054ac1026e575c974f3cb3c",
     "packages": [
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -148,6 +148,56 @@
             "time": "2015-10-29 23:28:48"
         },
         {
+            "name": "geoip2/geoip2",
+            "version": "v2.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maxmind/GeoIP2-php.git",
+                "reference": "ee15b2e466dd09fd2246cf64efa1aa9eca988b86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maxmind/GeoIP2-php/zipball/ee15b2e466dd09fd2246cf64efa1aa9eca988b86",
+                "reference": "ee15b2e466dd09fd2246cf64efa1aa9eca988b86",
+                "shasum": ""
+            },
+            "require": {
+                "maxmind-db/reader": "~1.0",
+                "maxmind/web-service-common": "~0.0.3",
+                "php": ">=5.3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GeoIp2\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Gregory J. Oschwald",
+                    "email": "goschwald@maxmind.com",
+                    "homepage": "http://www.maxmind.com/"
+                }
+            ],
+            "description": "MaxMind GeoIP2 PHP API",
+            "homepage": "https://github.com/maxmind/GeoIP2-php",
+            "keywords": [
+                "IP",
+                "geoip",
+                "geoip2",
+                "geolocation",
+                "maxmind"
+            ],
+            "time": "2015-09-24 17:29:28"
+        },
+        {
             "name": "jonom/focuspoint",
             "version": "dev-master",
             "source": {
@@ -225,6 +275,171 @@
                 "silverstripe"
             ],
             "time": "2015-12-18 03:34:13"
+        },
+        {
+            "name": "marketo/silverstripe-regional",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Marketo/SilverStripe-Regional.git",
+                "reference": "65d77c77b6e2b89758eaeaf6a20f1c9f38c92caf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Marketo/SilverStripe-Regional/zipball/65d77c77b6e2b89758eaeaf6a20f1c9f38c92caf",
+                "reference": "65d77c77b6e2b89758eaeaf6a20f1c9f38c92caf",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "silverstripe/cms": "3.*"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kirk Mayo",
+                    "email": "kirk.mayo@solnet.co.nz"
+                },
+                {
+                    "name": "Nathan J. Brauer",
+                    "email": "nathan@marketera.com"
+                }
+            ],
+            "description": "Using modern GeoIP lookup mechanisms, this SilverStripe module makes available the coordinates, postal code, city, state, country, content, timezone, organization, and ISP to the SilverStripe instance and can open a frontend API for static websites to take advantage of. It can be extended with GeoIP drivers to provide additional or custom contextual data.",
+            "time": "2015-12-18 00:51:11"
+        },
+        {
+            "name": "marketo/silverstripe-regional-maxmind-geoip2",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Marketo/SilverStripe-Regional-Maxmind-GeoIP2.git",
+                "reference": "a72b29b1efe65bdcfa2b625d1bb77b65a6659d35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Marketo/SilverStripe-Regional-Maxmind-GeoIP2/zipball/a72b29b1efe65bdcfa2b625d1bb77b65a6659d35",
+                "reference": "a72b29b1efe65bdcfa2b625d1bb77b65a6659d35",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "geoip2/geoip2": "~2.0",
+                "marketo/silverstripe-regional": "*",
+                "silverstripe/cms": "3.*"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kirk Mayo",
+                    "email": "kirk.mayo@solnet.co.nz"
+                },
+                {
+                    "name": "Nathan J. Brauer",
+                    "email": "nathan@marketera.com"
+                }
+            ],
+            "description": "Driver allowing the SilverStripe-Regional module to pull data from Maxmind using GeoIP2",
+            "time": "2015-12-17 19:34:39"
+        },
+        {
+            "name": "maxmind-db/reader",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maxmind/MaxMind-DB-Reader-php.git",
+                "reference": "07f211ab596ba60f9663d9984b888f76ee1beac9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/07f211ab596ba60f9663d9984b888f76ee1beac9",
+                "reference": "07f211ab596ba60f9663d9984b888f76ee1beac9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.2.*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "MaxMind": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Gregory J. Oschwald",
+                    "email": "goschwald@maxmind.com",
+                    "homepage": "http://www.maxmind.com/"
+                }
+            ],
+            "description": "MaxMind DB Reader API",
+            "homepage": "https://github.com/maxmind/MaxMind-DB-Reader-php",
+            "keywords": [
+                "database",
+                "geoip",
+                "geoip2",
+                "geolocation",
+                "maxmind"
+            ],
+            "time": "2015-03-13 22:35:13"
+        },
+        {
+            "name": "maxmind/web-service-common",
+            "version": "v0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maxmind/web-service-common-php.git",
+                "reference": "f26fce5281290973beeeca3e33847887177dd138"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maxmind/web-service-common-php/zipball/f26fce5281290973beeeca3e33847887177dd138",
+                "reference": "f26fce5281290973beeeca3e33847887177dd138",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MaxMind\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Gregory Oschwald",
+                    "email": "goschwald@maxmind.com"
+                }
+            ],
+            "description": "Internal MaxMind Web Service API",
+            "homepage": "https://github.com/maxmind/mm-web-service-api-php",
+            "time": "2015-07-21 20:07:31"
         },
         {
             "name": "md/ac-json-events",

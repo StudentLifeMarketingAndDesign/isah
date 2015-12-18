@@ -4,7 +4,8 @@
 	"require": {
 		"php": ">=5.3.2",
 		"md/division-project": "2.2.x-dev",
-        "silverstripe-australia/addressable" : "*"
+        "silverstripe-australia/addressable" : "*",
+"marketo/silverstripe-regional-maxmind-geoip2" : "*"
 	},
 	"config": {
 		"process-timeout": 600	
