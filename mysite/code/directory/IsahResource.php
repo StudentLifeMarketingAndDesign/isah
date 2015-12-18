@@ -42,7 +42,7 @@ class IsahResource extends DataObject {
 
 		$f->removeByName('Suburb');
 		$f->renameField('Postcode', 'ZIP code');
-		$f->renameField('Address', 'Address (including the city)');
+		$f->renameField('Address', 'Address, City');
 
 		return $f;
 	}
