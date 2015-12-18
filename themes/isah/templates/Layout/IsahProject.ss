@@ -5,6 +5,9 @@
 		<section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
 			$Breadcrumbs
 			<h1>$Title</h1>
+			
+			<% if $Address %><p>$Address</p><% end_if %>
+
 			<p>
 				<strong>Service areas: </strong><% loop $Counties %><a href="$Link">$Title</a><%if not $Last %>, <% end_if %><% end_loop %><br />
 				<% if $Website %><strong>Website: </strong><a href="$Website" target="_blank">Visit website &rarr;</a><br /><% end_if %>
