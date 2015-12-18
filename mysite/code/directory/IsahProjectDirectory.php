@@ -1,20 +1,22 @@
 <?php
 
-class SexualAssaultProjectDirectory extends Page {
+class IsahProjectDirectory extends Page {
 
 	private static $db = array(
 
 	);
 	private static $allowed_children = array(
-		'SexualAssaultProject',
+		'IsahProject',
 	);
-
-	private static $singular_name = 'ProjectDirectory';
+	private static $defaults = array(
+		'Content' => '',
+	);
+	private static $singular_name = 'Directory';
 	private static $icon          = 'cms/images/treeicons/book-openfolder.gif';
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Content');
-		$fields->removeByName('BackgroundImage');
+		//$fields->removeByName('BackgroundImage');
 		$fields->removeByName('Metadata');
 
 		$countyGridFieldConfig = GridFieldConfig_RecordEditor::create();
@@ -28,7 +30,7 @@ class SexualAssaultProjectDirectory extends Page {
 
 }
 
-class SexualAssaultProjectDirectory_Controller extends Page_Controller {
+class IsahProjectDirectory_Controller extends Page_Controller {
 
 	private static $allowed_actions = array(
 		'CountyForm',
@@ -58,7 +60,7 @@ class SexualAssaultProjectDirectory_Controller extends Page_Controller {
 	public function CountyForm() {
 
 		$fields = new FieldList(
-			DropdownField::create('County', 'County', SexualAssaultProject::get('County')->map('ID', 'Title'))->setEmptyString('(Select one)'
+			DropdownField::create('County', 'County', IsahProject::get('County')->map('ID', 'Title'))->setEmptyString('(Select one)'
 			));
 
 		$actions = new FieldList(

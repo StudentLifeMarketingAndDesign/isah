@@ -1,6 +1,6 @@
 <?php
 
-class SexualAssaultResource extends DataObject {
+class IsahResource extends DataObject {
 
 	private static $db = array(
 		'Title' => 'Varchar(155)',
@@ -20,7 +20,7 @@ class SexualAssaultResource extends DataObject {
 	private static $singular_name = 'Resource';
 
 	private static $many_many = array(
-		'Categories' => 'SexualAssaultResourceCategory',
+		'Categories' => 'IsahResourceCategory',
 	);
 
 	public function getCMSFields() {
@@ -28,7 +28,7 @@ class SexualAssaultResource extends DataObject {
 
 		$f = new FieldList();
 		$f->push(new TextField('Title', 'Title'));
-		$catField = TagField::create('Categories', 'Categories', SexualAssaultResourceCategory::get(), $this->Categories())->setShouldLazyLoad(true);
+		$catField = TagField::create('Categories', 'Categories', IsahResourceCategory::get(), $this->Categories())->setShouldLazyLoad(true);
 		$f->push($catField);
 
 		$f->push(new TextField('Phone', 'Phone number'));
@@ -42,6 +42,7 @@ class SexualAssaultResource extends DataObject {
 
 		$f->removeByName('Suburb');
 		$f->renameField('Postcode', 'ZIP code');
+		$f->renameField('Address', 'Address (including the city)');
 
 		return $f;
 	}

@@ -4,15 +4,17 @@
     <div class="white-cover"></div>
       <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
         $Breadcrumbs
-        $Content
-        $Form
-<button id="get-location">Get County</button>
-<div id="mapholder"></div>
+
+        <h1>Directory</h1>
+        <p>Click "use my location" or choose a county below to find resources near you. Your location information is not stored or tracked by us.</p>
+<p class="text-center"><button class="btn btn-large btn-primary" id="get-location">Use my location</button>
+    <div id="mapholder"></div>
+
       <p id="demo"></p>
-              <span id="County">Click on "Get County" or select a County </span>
+             <!-- <span id="County">Click on "Get County" or select a County </span> -->
 
         $CountyForm
-
+        <hr />
         <div id="results">
 
         </div>
@@ -74,7 +76,7 @@ function locationSuccess(position){
         if (status == google.maps.GeocoderStatus.OK) {
 
           var county = getCounty(results[0]);
-          document.getElementById('County').innerHTML = 'County: ' + county;
+         // document.getElementById('County').innerHTML = 'County: ' + county;
 
           var countyName = county.replace("County", "");
           $('#results').load('directory/load/'+ countyName);
@@ -95,7 +97,7 @@ function getGeocodedCountyNameFromPosition(position){
         if (status == google.maps.GeocoderStatus.OK) {
 
           var county = getCounty(results[0]);
-          document.getElementById('County').innerHTML = 'County: ' + county;
+         // document.getElementById('County').innerHTML = 'County: ' + county;
 
           countyName = county.replace("County", "");
           

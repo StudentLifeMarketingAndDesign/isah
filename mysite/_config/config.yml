@@ -10,7 +10,7 @@ Page:
 Page_Controller:
   extensions:
     - DivisionPage_Controller
-SexualAssaultResource:
+IsahResource:
   extensions:
     - Addressable
     - Geocodable

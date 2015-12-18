@@ -6,7 +6,7 @@
  * @package silverstripe
  * @subpackage blog
  */
-class SexualAssaultProjectDirectoryURLSegmentExtension extends DataExtension {
+class IsahProjectDirectoryURLSegmentExtension extends DataExtension {
 	/**
 	 * @var array
 	 */
