@@ -1,3 +1,5 @@
 <address>
-	{$Address}, {$State} $Postcode<br>
+	$Address<br>
+	{$Suburb}, $State $Postcode<br>
+	$CountryName
 </address>
