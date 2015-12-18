@@ -5,5 +5,8 @@
 	<% if $LocalCrisisLine %><strong>Local crisis line: </strong>$LocalCrisisLine <br /><% end_if %>
 	<% if $RegionalCrisisLine %><strong>Regional crisis line: </strong>$RegionalCrisisLine <br /><% end_if %>
 	<% if $Email %><strong>Email address: </strong><a href="mailto:$Email">$Email</a><br /><% end_if %>
-	<a href="$Link">More info and services offered &rarr;</a>
+	
 </p>
+<a href="$Link" class="btn btn-small">More info and services offered &rarr;</a>
+<hr />
+

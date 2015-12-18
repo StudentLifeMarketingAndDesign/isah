@@ -60,7 +60,7 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 	public function CountyForm() {
 
 		$fields = new FieldList(
-			DropdownField::create('County', 'County', IsahProject::get('County')->map('ID', 'Title'))->setEmptyString('(Select one)'
+			DropdownField::create('County', 'County', IsahProject::get('County')->map('ID', 'Title'))->setEmptyString('(Select a county)'
 			));
 
 		$actions = new FieldList(

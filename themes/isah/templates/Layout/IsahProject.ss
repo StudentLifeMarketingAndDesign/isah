@@ -14,15 +14,17 @@
 				<% if $TwentyFourHourCrisisLine %><strong>24 hour crisis line: </strong>$TwentyFourHourCrisisLine <br /><% end_if %>
 				<% if $SpanishLine %><strong>Spanish line: </strong>$SpanishLine <br /><% end_if %>
 				<% if $OutreachOffices %><strong>Outreach offices: </strong>$OutreachOffices <br /><% end_if %>
+				<% if $CrisisLines %><strong>Other crisis lines: </strong>$CrisisLines <br /><% end_if %>
+				<% if $ServicesOffered %><strong>Services offered: </strong>$ServicesOffered <br /><% end_if %>
 
 			</p>
+			<h2>Counties serviced:</h2>
 			<% loop $Counties %>
-				<% if $Resources %>
-					<h3 class="county-name">$Title County</h3>
-					<% loop $Resources %>
-						<% include IsahResourceCard %>
-					<% end_loop %>
-				<% end_if %>
+				<h3>$Title County</h3>
+				<% loop $Categories %>
+					<% include IsahCatCard %>
+				<% end_loop %>
+			<hr />
 			<% end_loop %>
 			$Content
 			$Form

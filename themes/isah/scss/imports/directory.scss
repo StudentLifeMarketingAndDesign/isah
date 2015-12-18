@@ -1,4 +1,8 @@
 .IsahProject, .IsahProjectDirectory {
+	#Form_CountyForm_County_Holder label {
+		@extend .visuallyhidden;
+	}
+
 	.cat-name {
 		text-transform: uppercase;
 		font-size: 13px;

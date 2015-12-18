@@ -7,13 +7,21 @@
 
         <h1>Directory</h1>
         <p>Click "use my location" or choose a county below to find resources near you. Your location information is not stored or tracked by us.</p>
-<p class="text-center"><button class="btn btn-large btn-primary" id="get-location">Use my location</button>
+        <div class="row small-collapse">
+          <div class="large-3 columns">
+<p><button class="btn btn-large btn-primary" id="get-location">Use my location</button></p>
+          </div>
+          <div class="large-9 columns">
+              $CountyForm
+          </div>
+        </div>
+
     <div id="mapholder"></div>
 
       <p id="demo"></p>
              <!-- <span id="County">Click on "Get County" or select a County </span> -->
 
-        $CountyForm
+    
         <hr />
         <div id="results">
 
