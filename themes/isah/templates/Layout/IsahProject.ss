@@ -18,7 +18,7 @@
 			</p>
 			<% loop $Counties %>
 				<% if $Resources %>
-					<h3>$Title County</h3>
+					<h3 class="county-name">$Title County</h3>
 					<% loop $Resources %>
 						<% include IsahResourceCard %>
 					<% end_loop %>

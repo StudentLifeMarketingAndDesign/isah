@@ -1,14 +1,16 @@
 <% if $County %>
 	<% with $County %>
 	<p>Showing results for $Title County:</p>
+	
 		<% if $Project %>
 			<article>
 				<% with $Project %>
 					<% include IsahProjectCard %>
 				<% end_with %>
-					<h2>Johnson County Resources:</h2>
 			</article>
 		<% end_if %>
+
+		<h3>$Title County Resources:</h3>
 		<% loop $Resources %>
 			<% include IsahResourceCard %>
 		<% end_loop %>
