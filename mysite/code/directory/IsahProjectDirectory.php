@@ -35,11 +35,22 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 	private static $allowed_actions = array(
 		'CountyForm',
 		'load',
+		'county',
 	);
 
 	private static $url_handlers = array(
-		'load/$Name' => 'load',
+		'load/$Name'         => 'load',
+		'county/$URLSegment' => 'county',
 	);
+
+	public function county() {
+		$urlSegment = $this->getRequest()->param('URLSegment');
+		$county     = County::get()->filter(array('URLSegment' => $urlSegment))->First();
+
+		$data = new ArrayData(array('County' => $county));
+
+		return $this->customise($data)->renderWith(array('County', 'Page'));
+	}
 
 	public function load() {
 		$countyName = $this->getRequest()->param('Name');
@@ -79,7 +90,7 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 
 		$form->sessionMessage('Hello '.$data['County'], 'success');
 
-		return $this->redirectBack();
+		//return $this->redirectBack();
 	}
 
 }

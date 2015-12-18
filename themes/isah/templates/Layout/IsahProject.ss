@@ -6,7 +6,7 @@
 			$Breadcrumbs
 			<h1>$Title</h1>
 			<p>
-				<strong>Service areas: </strong><% loop $Counties %>$Title<%if not $Last %>, <% end_if %><% end_loop %><br />
+				<strong>Service areas: </strong><% loop $Counties %><a href="$Link">$Title</a><%if not $Last %>, <% end_if %><% end_loop %><br />
 				<% if $Website %><strong>Website: </strong><a href="$Website" target="_blank">Visit website &rarr;</a><br /><% end_if %>
 				<% if $Email %><strong>Email address: </strong><a href="mailto:$Email">$Email</a><br /><% end_if %>
 				<% if $LocalCrisisLine %><strong>Local crisis line: </strong>$LocalCrisisLine <br /><% end_if %>

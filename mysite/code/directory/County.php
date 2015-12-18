@@ -46,6 +46,10 @@ class County extends DataObject {
 		return $f;
 	}
 
+	public function Link() {
+		return 'directory/county/'.$this->URLSegment.'/';
+	}
+
 	public function getCategories() {
 		$resources  = $this->Resources();
 		$categories = new ArrayList();
