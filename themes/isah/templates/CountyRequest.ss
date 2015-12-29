@@ -1,4 +1,4 @@
-<% if $County %>
+<% if $County.Resources || $County.Project %>
 	<% with $County %>
 	<p>Showing results for $Title County:</p>
 	
@@ -11,10 +11,9 @@
 		<% end_if %>
 
 		<h3>$Title County Resources:</h3>
-		<% loop $Resources %>
-			<% include IsahResourceCard %>
-		<% end_loop %>
-
+			<% loop $Categories %>
+				<% include IsahCatCard %>
+			<% end_loop %>
 	<% end_with %>
 <% else %>
 <p>No results found.</p>

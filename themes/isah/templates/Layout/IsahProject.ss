@@ -5,8 +5,11 @@
 		<section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
 			$Breadcrumbs
 			<h1>$Title</h1>
+			
+			<% if $Address %><p>$Address</p><% end_if %>
+
 			<p>
-				<strong>Service areas: </strong><% loop $Counties %>$Title<%if not $Last %>, <% end_if %><% end_loop %><br />
+				<strong>Service areas: </strong><% loop $Counties %><a href="$Link">$Title</a><%if not $Last %>, <% end_if %><% end_loop %><br />
 				<% if $Website %><strong>Website: </strong><a href="$Website" target="_blank">Visit website &rarr;</a><br /><% end_if %>
 				<% if $Email %><strong>Email address: </strong><a href="mailto:$Email">$Email</a><br /><% end_if %>
 				<% if $LocalCrisisLine %><strong>Local crisis line: </strong>$LocalCrisisLine <br /><% end_if %>
@@ -14,15 +17,17 @@
 				<% if $TwentyFourHourCrisisLine %><strong>24 hour crisis line: </strong>$TwentyFourHourCrisisLine <br /><% end_if %>
 				<% if $SpanishLine %><strong>Spanish line: </strong>$SpanishLine <br /><% end_if %>
 				<% if $OutreachOffices %><strong>Outreach offices: </strong>$OutreachOffices <br /><% end_if %>
+				<% if $CrisisLines %><strong>Other crisis lines: </strong>$CrisisLines <br /><% end_if %>
+				<% if $ServicesOffered %><strong>Services offered: </strong>$ServicesOffered <br /><% end_if %>
 
 			</p>
+			<h2>Counties serviced:</h2>
 			<% loop $Counties %>
-				<% if $Resources %>
-					<h3 class="county-name">$Title County</h3>
-					<% loop $Resources %>
-						<% include IsahResourceCard %>
-					<% end_loop %>
-				<% end_if %>
+				<h3>$Title County</h3>
+				<% loop $Categories %>
+					<% include IsahCatCard %>
+				<% end_loop %>
+			<hr />
 			<% end_loop %>
 			$Content
 			$Form

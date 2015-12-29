@@ -1,2 +1,9 @@
 @import "../../../../division-project/scss/imports/_config.scss";
 @import "../../../../division-project/scss/imports/_mixins.scss";
+
+.icon-svg {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}

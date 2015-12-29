@@ -7,13 +7,21 @@
 
         <h1>Directory</h1>
         <p>Click "use my location" or choose a county below to find resources near you. Your location information is not stored or tracked by us.</p>
-<p class="text-center"><button class="btn btn-large btn-primary" id="get-location">Use my location</button>
+        <div class="row small-collapse">
+          <div class="large-3 columns">
+<p><button class="btn btn-large btn-primary" id="get-location">Use my location</button></p>
+          </div>
+          <div class="large-9 columns">
+              $CountyForm
+          </div>
+        </div>
+
     <div id="mapholder"></div>
 
       <p id="demo"></p>
              <!-- <span id="County">Click on "Get County" or select a County </span> -->
 
-        $CountyForm
+    
         <hr />
         <div id="results">
 
@@ -35,8 +43,8 @@
 
 
 <%-- 41.663475,-91.5378082 --%>
-<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//maps.google.com/maps/api/js?sensor=true"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
 
@@ -49,6 +57,7 @@ $(document).ready(function() {
       $('#results').load('directory/load/'+ $('#Form_CountyForm_County').val());
   });
   $('#get-location').on('click', function(e){
+      //$('#results').innerHTML = 'Loading...';
       getLocation();
   });
 });

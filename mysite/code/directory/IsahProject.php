@@ -37,7 +37,7 @@ class IsahProject extends Page {
 		$f->removeByName('Metadata');
 		$f->removeByName('BackgroundImage');
 
-		$countyField = TagField::create('Counties', 'Serves the following counties:', County::get(), $this->Counties())->setShouldLazyLoad(false);
+		$countyField = TagField::create('Counties', 'Serves the following counties:', County::get(), $this->Counties())->setShouldLazyLoad(true);
 		$countyField->setCanCreate(false);
 		$f->addFieldToTab('Root.Main', $countyField);
 
