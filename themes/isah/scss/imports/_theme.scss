@@ -7,3 +7,37 @@
 	height: 1em;
 	fill: currentColor;
 }
+.hero {
+	border-bottom: 5px solid #044284;
+
+}
+
+.module .media {
+    border-bottom: 4px solid #044284;
+}
+
+.header {
+    background: #fff url('../images/nav_blue.gif') repeat-x left bottom;
+    position: relative;
+}
+
+
+#exit {
+	display: none;
+	@media (min-width: $break-large) { 
+		display: block;
+		background: url('../images/exit.gif') top;
+		position: fixed;
+		width:40px;
+		height: 196px;
+		top:45%;
+		z-index: 101;
+	}
+
+}
+
+#exit:hover {
+	background-position: bottom; 
+	cursor: pointer;
+}
+
