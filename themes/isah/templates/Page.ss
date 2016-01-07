@@ -44,9 +44,15 @@
     <% include Header %>
     $Layout
     <a id="exit" href="http://weather.com"></a>
+
+    
+    
     <% include SubFooter %>
     <% include Footer %>
     <% include MdBar %>
+    
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript">
 	function downloadJSAtOnload() {
