@@ -26,18 +26,16 @@
         <div id="results">
 
         </div>
+        Is this information accurate? <% include FeedbackModal %>
 
       </section>
       <section class="sec-content hide-print">
         <% include SideNav %>
       </section>
+
   </div>
 </div>
 <% include TopicsAndNews %> 
-
-
-
-
 
 
 
