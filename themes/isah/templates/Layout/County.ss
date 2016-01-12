@@ -3,7 +3,12 @@
 	<div class="container clearfix">
 		<div class="white-cover"></div>
 		<section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
-			$Breadcrumbs
+			<ul class="breadcrumbs">
+				<li><a href="$Baseref">Home</a></li>
+				<li><a href="directory/">Directory</a></li>
+				<li><a href="directory/counties">Counties</a></li>
+				<li><a href="$County.Link" class="active">$County.Title</a></li>
+			</ul>
 			<% with $County %>
 			<h1>$Title County</h1>
 			

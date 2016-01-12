@@ -11,7 +11,10 @@
           <div class="large-3 columns">
 <p><button class="btn btn-large btn-primary" id="get-location">Use my location</button></p>
           </div>
-          <div class="large-9 columns">
+          <div class="large-1 columns">
+          <p>Or...</p>
+          </div>
+          <div class="large-8 columns">
               $CountyForm
           </div>
         </div>
