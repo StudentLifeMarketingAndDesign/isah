@@ -21,17 +21,10 @@
 		<% end_if %>
 
 		<h3>$Title County Resources:</h3>
-				<div class="row resource-container collapse">
-					<div class="large-12 columns">
-						<ul class="large-block-grid-3 resource-list">
-								<% loop $Resources %>
-								
-									<li><% include IsahResourceCard %></li>
-								
-								<% end_loop %>
-						</ul>
-					</div>
-				</div>
+			<% loop $Categories %>
+				<% include IsahCatCard %>
+			<% end_loop %>
+
 	<% end_with %>
 		</section>
 		<section class="sec-content hide-print">

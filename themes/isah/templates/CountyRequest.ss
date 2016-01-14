@@ -10,18 +10,10 @@
 				<% end_with %>
 	
 		<% end_if %>
-		<% if $Resources %>
-			<h3>More $Title County Resources:</h3>
-			<div class="row collapse">
-				<div class="large-12 columns">
-					<ul class="large-block-grid-3">
-						<% loop $Resources %>
-							<li><% include IsahResourceCard %></li>
-						<% end_loop %>
-					</ul>
-				</div>
-			</div>
-		<% end_if %>
+			<h3>$Title County Resources:</h3>
+			<% loop $Categories %>
+				<% include IsahCatCard %>
+			<% end_loop %>
 	<% end_with %>
 <% else %>
 <p>No results found.</p>

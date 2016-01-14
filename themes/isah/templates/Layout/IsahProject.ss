@@ -14,17 +14,11 @@
 				<% end_loop %>
 			</ul>
 			<% loop $Counties %>
-				<h3 id="$URLSegment">$Title County</h3>
+				<h2 id="$URLSegment">$Title County</h2>
 				<% if $Resources %>
-					<div class="row collapse">
-						<div class="large-12 columns">
-							<ul class="large-block-grid-3">
-								<% loop $Resources %>
-									<li><% include IsahResourceCard %></li>
-								<% end_loop %>
-							</ul>
-						</div>
-					</div>
+					<% loop $Categories %>
+						<% include IsahCatCard %>
+					<% end_loop %>
 				<% end_if %>
 			<hr />
 			<% end_loop %>
