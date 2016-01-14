@@ -11,4 +11,4 @@
 				<% if $CrisisLines %><strong>Other crisis lines: </strong>$CrisisLines <br /><% end_if %>
 				<% if $ServicesOffered %><strong>Services offered: </strong>$ServicesOffered <br /><% end_if %>
 			</p>
-			<p><a href="$Link" class="btn btn-small btn-primary">More information</a> <% if $Website %><a href="$Website" class="btn btn-small" target="_blank">Visit website &rarr;</a><% end_if %></p>
+		

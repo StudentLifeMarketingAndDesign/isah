@@ -18,6 +18,7 @@
 					<h2><a href="$Link">$Title</a></h2>
 					<% include IsahProjectInfoCard %>
 				<% end_with %>
+					<p><a href="$Link" class="btn btn-small btn-primary">More information</a> <% if $Website %><a href="$Website" class="btn btn-small" target="_blank">Visit website &rarr;</a><% end_if %></p>
 		<% end_if %>
 
 		<h3>$Title County Resources:</h3>

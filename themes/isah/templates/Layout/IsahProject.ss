@@ -2,17 +2,29 @@
 <div class="gradient">
 	<div class="container clearfix">
 		<div class="white-cover"></div>
-		<section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
+		<section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>" role="main">
 			$Breadcrumbs
 			<h1>$Title</h1>
-			<% include IsahProjectInfoCard %>
-			<h2>Counties serviced</h2>
-			<p>Jump to:</p>
-			<ul>
-				<% loop $Counties %>
-					<li><a href="{$Top.Link}#{$URLSegment}">$Title</a></li>
-				<% end_loop %>
-			</ul>
+			
+
+			<div class="row collapse">
+				<div class="large-7 columns">
+					<% include IsahProjectInfoCard %>
+						<% if $Website %><p><a href="$Website" class="btn btn-small" target="_blank">Visit website &rarr;</a></p><% end_if %>
+				</div>
+
+				<div class="large-4 large-offset-1 columns">
+					<p>Jump to county:</p>
+					<ul>
+						<% loop $Counties %>
+							<li><a href="{$Top.Link}#{$URLSegment}">$Title</a></li>
+						<% end_loop %>
+					</ul>					
+				</div>
+
+
+			</div>
+			
 			<% loop $Counties %>
 				<h2 id="$URLSegment">$Title County</h2>
 				<% if $Resources %>

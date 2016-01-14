@@ -74,7 +74,7 @@ class County extends DataObject {
 
 		}
 
-		return $filteredCategories;
+		return $filteredCategories->sort('Title ASC');
 
 	}
 }
