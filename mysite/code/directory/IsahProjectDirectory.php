@@ -46,6 +46,11 @@ class IsahProjectDirectory extends Page {
 		return $form;
 	}
 
+	public function OtherDirectoryResources() {
+
+		return $this->Children()->filter(array('ClassName' => 'IsahDirectoryPage'));
+	}
+
 }
 
 class IsahProjectDirectory_Controller extends Page_Controller {
