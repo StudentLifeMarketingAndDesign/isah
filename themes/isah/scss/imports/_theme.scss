@@ -7,37 +7,44 @@
 	height: 1em;
 	fill: currentColor;
 }
-.hero {
-	border-bottom: 5px solid #044284;
 
+.hero {
+	border-bottom: 5px solid #8EC648;
 }
 
 .module .media {
-    border-bottom: 4px solid #044284;
+	border-bottom: 4px solid #8EC648;
 }
 
 .header {
-    background: #fff url('../images/nav_blue.gif') repeat-x left bottom;
-    position: relative;
+	background: #fff url("../images/nav_green.gif") repeat-x left bottom;
+	position: relative;
 }
-
 
 #exit {
 	display: none;
-	@media (min-width: $break-large) { 
+
+	@media (min-width: $break-large) {
 		display: block;
-		background: url('../images/exit.gif') top;
+		background: url("../images/exit.gif") top;
 		position: fixed;
-		width:40px;
+		width: 40px;
 		height: 196px;
-		top:45%;
+		top: 45%;
 		z-index: 101;
 	}
-
 }
 
 #exit:hover {
-	background-position: bottom; 
+	background-position: bottom;
 	cursor: pointer;
 }
 
+.white-popup-block {
+	position: relative;
+	background: #FFF;
+	padding: 20px;
+	width: auto;
+	max-width: 950px;
+	margin: 20px auto;
+}

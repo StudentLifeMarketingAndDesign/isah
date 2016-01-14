@@ -1,5 +1,12 @@
+<% if $Categories %>
+<p class="cat-name">
+<% loop Categories %>
+	$Title<% if not $Last %>, <% end_if %>
+<% end_loop %>
+</p>
+<% end_if %>
 <h4>$Title</h4>
 <% if $FullAddressHTML %>$FullAddressHTML<% end_if %>
 <p>
 	<% if $Phone %><strong>Phone:</strong> $Phone <br /><% end_if %>
-</p>
+<p>
