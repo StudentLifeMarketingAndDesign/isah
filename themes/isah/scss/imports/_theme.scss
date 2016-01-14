@@ -1,6 +1,8 @@
 @import "../../../../division-project/scss/imports/_config.scss";
 @import "../../../../division-project/scss/imports/_mixins.scss";
 
+$green: #8EC648;
+
 .icon-svg {
 	display: inline-block;
 	width: 1em;
@@ -9,15 +11,15 @@
 }
 
 .hero {
-	border-bottom: 5px solid #8EC648;
+	border-bottom: 5px solid $green;
 }
 
 .hero-text li a {
-	background: #8EC648;
+	background: $green;
 }
 
 .module .media {
-	border-bottom: 4px solid #8EC648;
+	border-bottom: 4px solid $green;
 }
 
 .header {
