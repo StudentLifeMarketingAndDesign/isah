@@ -7,7 +7,7 @@ class IsahProjectDirectory extends Page {
 	);
 	private static $allowed_children = array(
 		'IsahProject',
-		'Page',
+		'IsahDirectoryPage',
 	);
 	private static $defaults = array(
 		'Content' => '',
@@ -27,6 +27,23 @@ class IsahProjectDirectory extends Page {
 		$fields->addFieldToTab("Root.Main", $countyGridField);
 
 		return $fields;
+	}
+
+	public function CountyForm() {
+
+		$fields = new FieldList(
+			DropdownField::create('County', 'County', IsahProject::get('County')->map('URLSegment', 'Title'))->setEmptyString('(Select a county)'
+			));
+
+		$actions = new FieldList(
+			//FormAction::create("getCountyInfo")->setTitle("Submit")
+		);
+
+		$required = new RequiredFields('County');
+
+		$form = new Form($this, 'CountyForm', $fields, $actions, $required);
+
+		return $form;
 	}
 
 }
@@ -130,7 +147,7 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 			$county = County::get_by_id('County', $countyName);
 		} else {
 			$county = County::get()->filter(array(
-					'Title:PartialMatch' => $countyName,
+					'URLSegment:PartialMatch' => $countyName,
 				))->First();
 		}
 
@@ -139,23 +156,6 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 			));
 
 		return $this->customise($data)->renderWith('CountyRequest');
-	}
-
-	public function CountyForm() {
-
-		$fields = new FieldList(
-			DropdownField::create('County', 'County', IsahProject::get('County')->map('ID', 'Title'))->setEmptyString('(Select a county)'
-			));
-
-		$actions = new FieldList(
-			//FormAction::create("getCountyInfo")->setTitle("Submit")
-		);
-
-		$required = new RequiredFields('County');
-
-		$form = new Form($this, 'CountyForm', $fields, $actions, $required);
-
-		return $form;
 	}
 
 	public function getCountyInfo($data, Form $form) {
