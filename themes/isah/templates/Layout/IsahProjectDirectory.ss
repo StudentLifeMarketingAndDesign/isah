@@ -18,15 +18,16 @@
               $CountyForm
           </div>
         </div>
-        <% loop $OtherDirectoryResources %>
-          <h2><a href="$Link">$MenuTitle</a></h2>
-          <p>$Content.Summary(50) <a href="$Link">Continue reading</a></p>
-        <% end_loop %>
+
         <!--<div id="mapholder"></div>
 
         <p id="demo"></p>-->
         <hr />
         <div id="results"></div>
+        <% loop $OtherDirectoryResources %>
+          <h2><a href="$Link">$MenuTitle</a></h2>
+          <p>$Content.Summary(50) <a href="$Link">Continue reading</a></p>
+        <% end_loop %>
         Is this information accurate? <% include FeedbackModal %>
       </section>
       <section class="sec-content hide-print">
