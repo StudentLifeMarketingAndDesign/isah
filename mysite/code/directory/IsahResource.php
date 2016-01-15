@@ -10,6 +10,7 @@ class IsahResource extends DataObject {
 		'Website'                   => 'Text',
 		'Content'                   => 'HTMLText',
 		'ServicesOffered'           => 'HTMLText',
+		'POBox'                     => 'Varchar(155)',
 		'ConfidentialLocationCity'  => 'Varchar(155)',
 		'ConfidentialLocationState' => 'Varchar(155)',
 		'FriendlyDirections'        => 'HTMLText',
@@ -42,8 +43,8 @@ class IsahResource extends DataObject {
 		foreach ($addrFields as $field) {
 			$f->push($field);
 		}
-
-		$f->push(new TextareaField('FriendlyDirections', 'Friendly Directions (if the address above isn\'t a PO Box)'));
+		$f->push(new TextField('POBox', 'P.O. Box (if separate from address above)'));
+		$f->push(new TextareaField('FriendlyDirections', 'Friendly directions'));
 
 		$f->push(new HeaderField('ConfidentialLocation', 'Confidential Location'));
 		$f->push(new TextField('ConfidentialLocationCity'));
