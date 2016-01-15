@@ -8,7 +8,7 @@ $(document).ready(function() {
 	if(window.location.hash) {
 		var countyHash = window.location.hash.substr(1);
 		$('#Form_CountyForm_County').val(countyHash);
-	  $('#results').load('directory/load/'+ countyHash);
+		$('#results').load('directory/load/'+ countyHash);
 	} else {
 	  // Fragment doesn't exist
 	}	
@@ -49,14 +49,26 @@ function locationSuccess(position){
           var county = getCounty(results[0]);
          // document.getElementById('County').innerHTML = 'County: ' + county;
 
-          var countyName = county.replace("County", "");
+
+
+          var countyName = convertToSlug(countyName);
+          countyName = countyName.replace("-county", "");
+          //countyName =  convertToSlug(countyName);
+
           $('#results').load('directory/load/'+ countyName);
           
         }
       });
   //showPosition(position);
 }
-
+function convertToSlug(Text)
+{
+    return Text
+        .toLowerCase()
+        .replace(/ /g,'-')
+        .replace(/[^\w-]+/g,'')
+        ;
+}
 function getGeocodedCountyNameFromPosition(position){
     
       lat = position.coords.latitude;

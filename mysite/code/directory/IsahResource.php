@@ -5,11 +5,14 @@ class IsahResource extends DataObject {
 	private static $db = array(
 		'Title' => 'Varchar(155)',
 		//'Address'         => 'HTMLText',
-		'Phone'           => 'Text',
-		'Email'           => 'Text',
-		'Website'         => 'Text',
-		'Content'         => 'HTMLText',
-		'ServicesOffered' => 'HTMLText',
+		'Phone'                     => 'Text',
+		'Email'                     => 'Text',
+		'Website'                   => 'Text',
+		'Content'                   => 'HTMLText',
+		'ServicesOffered'           => 'HTMLText',
+		'ConfidentialLocationCity'  => 'Varchar(155)',
+		'ConfidentialLocationState' => 'Varchar(155)',
+		'FriendlyDirections'        => 'HTMLText',
 
 	);
 
@@ -39,6 +42,12 @@ class IsahResource extends DataObject {
 		foreach ($addrFields as $field) {
 			$f->push($field);
 		}
+
+		$f->push(new TextareaField('FriendlyDirections', 'Friendly Directions (if the address above isn\'t a PO Box)'));
+
+		$f->push(new HeaderField('ConfidentialLocation', 'Confidential Location'));
+		$f->push(new TextField('ConfidentialLocationCity'));
+		$f->push(new TextField('ConfidentialLocationState'));
 
 		//$f->removeByName('Suburb');
 		$f->renameField('Postcode', 'ZIP code');

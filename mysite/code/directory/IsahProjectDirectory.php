@@ -149,10 +149,11 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 		$countyName = $this->getRequest()->param('Name');
 
 		if (is_numeric($countyName)) {
-			$county = County::get_by_id('County', $countyName);
+			echo "is numeric";
+			$county = County::get()->filter(array('ID' => $countyName));
 		} else {
 			$county = County::get()->filter(array(
-					'URLSegment:PartialMatch' => $countyName,
+					'URLSegment' => $countyName,
 				))->First();
 		}
 
