@@ -43,7 +43,7 @@ class IsahResource extends DataObject {
 		foreach ($addrFields as $field) {
 			$f->push($field);
 		}
-		$f->push(new TextField('POBox', 'P.O. Box (if separate from address above)'));
+		//$f->push(new TextField('POBox', 'P.O. Box (if separate from address above)'));
 		$f->push(new TextareaField('FriendlyDirections', 'Friendly directions'));
 
 		$f->push(new HeaderField('ConfidentialLocation', 'Confidential Location'));
