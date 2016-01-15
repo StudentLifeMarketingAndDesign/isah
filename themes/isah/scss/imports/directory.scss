@@ -15,6 +15,13 @@
 		background-color: #eee;
 		margin: 0;
 		font-family: $heading-font;
+		font-weight: bold;
+	}
+
+	.project {
+		@media (min-width: $break-large) {
+			padding: 40px 0;
+		}
 	}
 
 	.resource-container {
