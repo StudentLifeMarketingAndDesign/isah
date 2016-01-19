@@ -49,11 +49,11 @@ function locationSuccess(position){
           var county = getCounty(results[0]);
          // document.getElementById('County').innerHTML = 'County: ' + county;
 
-
-
-          var countyName = convertToSlug(countyName);
+          var countyName = convertToSlug(county);
           countyName = countyName.replace("-county", "");
           //countyName =  convertToSlug(countyName);
+
+          alert(countyName);
 
           $('#results').load('directory/load/'+ countyName);
           
