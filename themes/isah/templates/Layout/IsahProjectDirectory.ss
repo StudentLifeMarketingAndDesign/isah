@@ -16,6 +16,7 @@
           </div>
           <div class="large-8 columns">
               $CountyForm
+
           </div>
         </div>
 
@@ -23,6 +24,7 @@
 
         <p id="demo"></p>-->
         <hr />
+
         <div id="results"></div>
         <h2>General resources</h2>
         <% loop $OtherDirectoryResources %>
@@ -30,6 +32,7 @@
           <p>$Content.Summary(50) <a href="$Link">Continue reading</a></p>
         <% end_loop %>
         Is this information accurate? <% include FeedbackModal %>
+
       </section>
       <section class="sec-content hide-print">
         <% include SideNav %>
@@ -39,8 +42,6 @@
 </div>
 <% include TopicsAndNews %> 
 
-
-
-
 <%-- 41.663475,-91.5378082 --%>
 <script src="//maps.google.com/maps/api/js?sensor=true"></script>
+

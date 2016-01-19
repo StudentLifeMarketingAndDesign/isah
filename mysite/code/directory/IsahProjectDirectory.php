@@ -60,6 +60,7 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 		'load',
 		'county',
 		'FeedbackForm',
+		
 	);
 
 	private static $url_handlers = array(
@@ -135,6 +136,7 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 
 		return $this->redirect($this->Link());
 	}
+
 
 	public function county() {
 		$urlSegment = $this->getRequest()->param('URLSegment');

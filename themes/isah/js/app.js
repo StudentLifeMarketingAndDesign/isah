@@ -1,8 +1,9 @@
 $(document).ready(function() {
 	$('.open-feedback').magnificPopup({
+
 		type: 'inline',
 		preloader: false,
-	
+		
 	});
 
 	if(window.location.hash) {
@@ -53,9 +54,10 @@ function locationSuccess(position){
           countyName = countyName.replace("-county", "");
           //countyName =  convertToSlug(countyName);
 
-          alert(countyName);
+          //alert(countyName);
 
           $('#results').load('directory/load/'+ countyName);
+          window.location.hash = '#'+ countyName;
           
         }
       });
