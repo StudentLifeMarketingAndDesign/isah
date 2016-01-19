@@ -37,6 +37,7 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 		'load',
 		'county',
 		'FeedbackForm',
+		
 	);
 
 	private static $url_handlers = array(
@@ -44,75 +45,6 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 		'county/$URLSegment' => 'county',
 	);
 
-	public function FeedbackForm() {
-
-		$memberName = '';
-		$memberEmail = '';
-
-		$fields = new FieldList(
-
-			new TextField('Name', '<span>*</span>Your Name', $memberName),
-			new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
-			DropdownField::create('County', 'If your feedback is related to a specific county please select one from below:', IsahProject::get('County')->map('ID', 'Title'))->setEmptyString('(None)'),
-			new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
-			new HiddenField('PageID', 'PageID', $this->ID)
-			
-		);
-
-  		$actions = new FieldList(
-			new FormAction('SubmitFeedbackForm', 'Submit Feedback')
-		);
-
-		// Create action
-		$validator = new RequiredFields('Name', 'Email', 'Feedback');
-
-		//Create form
-		$Form = new Form($this, 'FeedbackForm', $fields, $actions, $validator);
-
-		//$protector = SpamProtectorManager::update_form($Form, 'Message', null, "Please enter the following words");
-		$Form->enableSpamProtection();
-
-		return $Form;
-	}
-
-	public function SubmitFeedbackForm($data, $form) {
-
-		$adminEmail = Config::inst()->get('Email', 'admin_email');
-
-		$feedback = new FeedbackItem();
-		$form->saveInto($feedback);
-
-		$feedback->write();
-
-		if ($feedback->SpecificPage == "1") {
-			$relatedPage = Page::get_by_id("Page", $feedback->PageID);
-		}
-		
-		$subject = "Feedback submitted";
-
-		//check data for errors
-		$name = Convert::raw2sql($data['Name']);
-		$userEmail = Convert::raw2sql($data['Email']);
-		$feedback = Convert::raw2sql($data['Feedback']);
-
-
-		if (isset($relatedPage)){
-			$body = '' . $name . " has submitted feedback for page " . $relatedPage->Title . ". <br><br>Feedback:" . $feedback;
-		} else {
-			$body = '' . $name . " has submitted feedback. " . "<br><br>Feedback:" . $feedback;
-		}
-
-		$email = new Email();
-		$email->setTo($adminEmail);
-		$email->setFrom($adminEmail);
-		$email->setSubject($subject);
-		$email->setBody($body);
-		if (SS_ENVIRONMENT_TYPE == "live") {
-			$email->send(); 
-		}
-
-		return $this->redirect($this->Link());
-	}
 
 	public function county() {
 		$urlSegment = $this->getRequest()->param('URLSegment');

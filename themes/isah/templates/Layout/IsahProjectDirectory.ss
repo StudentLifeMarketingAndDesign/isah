@@ -13,6 +13,7 @@
           </div>
           <div class="large-9 columns">
               $CountyForm
+
           </div>
         </div>
 
@@ -26,7 +27,12 @@
         <div id="results">
 
         </div>
+        <% if FeedbackSuccess %>
+          Thank you for your feedback. <br>
+        <% end_if %>
         Is this information accurate? <% include FeedbackModal %>
+
+
 
       </section>
       <section class="sec-content hide-print">
@@ -87,6 +93,7 @@ function locationSuccess(position){
 
           var countyName = county.replace("County", "");
           $('#results').load('directory/load/'+ countyName);
+          window.location.hash = '#'+ countyName;
           
         }
       });
