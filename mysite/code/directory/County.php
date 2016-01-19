@@ -54,6 +54,8 @@ class County extends DataObject {
 		$resources  = $this->Resources();
 		$categories = new ArrayList();
 
+		$filteredCategories = new ArrayList();
+
 		foreach ($resources as $resource) {
 			$resourceCats = $resource->Categories();
 			$categories->merge($resourceCats);
@@ -61,7 +63,18 @@ class County extends DataObject {
 
 		$categories->removeDuplicates();
 
-		return $categories;
+		foreach ($categories as $category) {
+			$filteredCategoryResults = $category->Resources()->filter(array('CountyID' => $this->ID));
+			$filteredCategory        = new IsahResourceCategory();
+
+			$filteredCategory->Title = $category->Title;
+			//$filteredCategory->ID        = $category->ID;
+			$filteredCategory->FilteredResources = new ArrayList($filteredCategoryResults->toArray());
+			$filteredCategories->push($filteredCategory);
+
+		}
+
+		return $filteredCategories->sort('Title ASC');
 
 	}
 }

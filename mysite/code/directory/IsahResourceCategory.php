@@ -15,4 +15,6 @@ class IsahResourceCategory extends DataObject {
 		'Resources' => 'IsahResource',
 	);
 
+	private static $default_sort = 'Title ASC';
+
 }

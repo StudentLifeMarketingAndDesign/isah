@@ -53,7 +53,7 @@ class IsahProject extends Page {
 		$f->addFieldToTab('Root.Main', new TextField('LocalCrisisLine', 'Local crisis line'));
 		$f->addFieldToTab('Root.Main', new TextField('RegionalHotline', 'Regional hotline'));
 		$f->addFieldToTab('Root.Main', new TextField('SpanishLine', 'Spanish line'));
-		$f->addFieldToTab('Root.Main', new TextField('TwentyFourHourCrisisLine', '24 hour crisis line'));
+		//$f->addFieldToTab('Root.Main', new TextField('TwentyFourHourCrisisLine', '24 hour crisis line'));
 		$f->addFieldToTab('Root.Main', new TextareaField('CrisisLines', 'Other crisis line(s)'));
 		$f->addFieldToTab('Root.Main', new TextareaField('OutreachOffices', 'Outreach offices'));
 		$f->addFieldToTab('Root.Main', new TextField('Fax', 'Fax number'));
