@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f331d245f4c6e2e8030766b7a3c6b76a",
-    "content-hash": "0e9f37d1f493eced767021e97c98a058",
+    "hash": "75a28cfda1e809ab2c40d6bbbb623b9f",
+    "content-hash": "2b489fd4f362131042ed3045ef864aa7",
     "packages": [
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -491,12 +491,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-australia/silverstripe-addressable.git",
-                "reference": "45555335c286a571ffd2d13ffe04f40016035df9"
+                "reference": "f0ee48ebf380e12219699c1713e97368f4b77b42"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/silverstripe-australia/silverstripe-addressable/zipball/c8b057e6b7eb93518dfea60d6e9a51baa99d24b7",
-                "reference": "45555335c286a571ffd2d13ffe04f40016035df9",
+                "reference": "f0ee48ebf380e12219699c1713e97368f4b77b42",
                 "shasum": ""
             },
             "require": {
@@ -532,7 +532,7 @@
                 "geocoding",
                 "silverstripe"
             ],
-            "time": "2016-01-20 16:53:41"
+            "time": "2016-01-18 05:41:25"
         },
         {
             "name": "silverstripe-australia/gridfieldextensions",
