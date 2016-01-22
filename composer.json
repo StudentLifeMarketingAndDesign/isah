@@ -4,7 +4,7 @@
 	"require": {
 		"php": ">=5.3.2",
 		"md/division-project": "2.2.x-dev",
-        "silverstripe-australia/addressable" : "*"
+        "silverstripe-australia/addressable" : "dev-master#45555335c286a571ffd2d13ffe04f40016035df9"
 	},
 	"config": {
 		"process-timeout": 600	
