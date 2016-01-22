@@ -65,7 +65,7 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 
 	private static $url_handlers = array(
 		'load//$Name'        => 'load',
-		'county/$URLSegment' => 'county',
+		'county//$Action/$ID/'		=> 'county',
 	);
 
 	public function FeedbackForm() {
@@ -139,11 +139,28 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 
 	public function county() {
 		$urlSegment = $this->getRequest()->param('URLSegment');
-		$county     = County::get()->filter(array('URLSegment' => $urlSegment))->First();
 
-		$data = new ArrayData(array('County' => $county));
+		if($urlSegment != null) {
+			$county     = County::get()->filter(array('URLSegment' => $urlSegment))->First();
 
-		return $this->customise($data)->renderWith(array('County', 'Page'));
+			if ($county) {
+				$data = new ArrayData(array(
+						'County' => $county,
+					));
+				Debug::Show($urlSegment);
+				return $this->customise($data)->renderWith(array('County', 'Page'));
+			} else {
+				return $this->httpError('404', 'Page not found');
+			}
+		}else{
+			echo "HEY";
+		}
+		// if($urlSegment == null) {
+		// 	Debug::Show($urlSegment);
+		// 	print_r('HEY');
+		// }
+
+
 	}
 
 	public function load() {
