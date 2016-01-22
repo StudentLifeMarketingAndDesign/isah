@@ -1,8 +1,16 @@
-<% include BackgroundImage %>
+<% if $BackgroundImage %>
+	<% with $BackgroundImage %>
+	<div class="img-container lazy" data-src="$URL" style="background-position: $PercentageX% $PercentageY%; ">
+		<div id="mapholder"></div>
+		<div class="img-fifty-top"></div>
+	</div>
+	<% end_with %>
+<% end_if %>
 <div class="gradient">
 	<div class="container clearfix">
 		<div class="white-cover"></div>
 		<section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
+			<p id="demo"></p>
 			<ul class="breadcrumbs">
 				<li><a href="$Baseref">Home</a></li>
 				<li><a href="directory/">Directory</a></li>
@@ -10,6 +18,8 @@
 				<li><a href="$County.Link" class="active">$County.Title</a></li>
 			</ul>
 			<% with $County %>
+
+			<article data-county="$Title County" data-state="$State">
 			<h1>$Title County</h1>
 			
 	
@@ -27,6 +37,7 @@
 			<% end_loop %>
 
 	<% end_with %>
+	</article>
 		</section>
 		<section class="sec-content hide-print">
 			<% include SideNav %>
@@ -34,3 +45,5 @@
 	</div>
 </div>
 <% include TopicsAndNews %>
+<%-- 41.663475,-91.5378082 --%>
+<script src="//maps.google.com/maps/api/js?sensor=true"></script>

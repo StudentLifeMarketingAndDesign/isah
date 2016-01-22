@@ -7149,6 +7149,17 @@ $(document).ready(function() {
 		preloader: false,
 		
 	});
+  geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'address': 'Marshall County, IA'}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var geocounty = results[0];
+          //showCounty(geocounty);
+          console.log(results);
+        }else{
+          alert('error');
+        }
+      });
+  
 
 	if(window.location.hash) {
 		var countyHash = window.location.hash.substr(1);
@@ -7170,7 +7181,7 @@ $(document).ready(function() {
 
 
 var geocoder;  // this object will handle the position<->address conversion
-var x = document.getElementById("demo");
+//var x = document.getElementById("demo");
 //var countyName;
 
 function getLocation() {
@@ -7234,21 +7245,70 @@ function getGeocodedCountyNameFromPosition(position){
       });
 
 }
+function venueGen() { 
+  //DON'T CHANGE IDs or Class Names in NearMePage.ss
+  //Scans venues loaded on page for data-attributes and pulls data
 
+  //note: geocoder used to be global variable
+  var geocoder = new google.maps.Geocoder();
 
-function showPosition(position) {
-    x.innerHTML = "Location found."
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
-    latlon = new google.maps.LatLng(lat, lon);
+  $('.county-resource').each(function(index, element) {
+    var venue = this;
+    var venueID = venue.id;
+    var title = $(this).data("title");
+    var lat = $(this).data("lat");
+    var lng = $(this).data("lng");
+    var venueLatLng;
+    
+    if(lat && lng) {
+      //console.log('venue has coords');
+      venueLatLng = new google.maps.LatLng(lat, lng);
+    } else if (address != null) {
+      //console.log('venue does not have coords, has address');
+      geocoder.geocode( {'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+        //Geocoder returns array of information, first indice is lat/lng
+        venueLatLng = results[0].geometry.location;
+        }       
+      });
+    } else {
+      //console.log("No coords or address available for " + title)
+    } 
+
+    // drops pin
+    var marker = new google.maps.Marker({
+      position: venueLatLng,
+      map: map
+    }); 
+
+    //console.log("I have " + title + " at " + venueLatLng);
+    // fills 'infowindow' for each pin with list of events
+    addEventInfo( marker, venue );  
+
+    venueFromUser[venueID] = google.maps.geometry.spherical.computeDistanceBetween(userInitPosition, venueLatLng);
+
+  }); 
+
+  /* when finished, sort venues divs on page. */
+  sortVenues();
+
+}
+
+function showCounty(position) {
+   // x.innerHTML = "Location found."
+      /*lat = position.coords.latitude;
+      lon = position.coords.longitude;*/
+          lat = 41.663475;
+    lon =-91.5378082;
+      latlon = new google.maps.LatLng(lat, lon);
     // okay, now we have the position (as a google maps latLng object), 
     // now we send this position to geocoder
     // @see  https://developers.google.com/maps/documentation/javascript/geocoding
 
 
     mapholder = document.getElementById('mapholder');
-    mapholder.style.height = '250px';
-    mapholder.style.width = '500px';
+    mapholder.style.height = '100%';
+    mapholder.style.width = '100%';
 
     var myOptions = {
       center:latlon,zoom:14,
