@@ -16,6 +16,7 @@ $(document).ready(function() {
 
 	  $('#Form_CountyForm_County').on('change', function(e){
 	      $('#results').load('directory/load/'+ $('#Form_CountyForm_County').val());
+
 	      window.location.hash = '#'+$('#Form_CountyForm_County').val();
 	  });
 	  $('#get-location').on('click', function(e){
@@ -53,11 +54,14 @@ function locationSuccess(position){
           var countyName = convertToSlug(county);
           countyName = countyName.replace("-county", "");
           //countyName =  convertToSlug(countyName);
-
-          //alert(countyName);
+          
 
           $('#results').load('directory/load/'+ countyName);
           window.location.hash = '#'+ countyName;
+          // alert(countyName);
+         
+          
+          document.getElementById('Form_CountyForm_County').value=countyName;
           
         }
       });
