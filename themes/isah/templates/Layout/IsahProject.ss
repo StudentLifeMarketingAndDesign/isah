@@ -36,9 +36,10 @@
 			<% end_loop %>
 			$Content
 			$Form
+			<% include FeedbackLink %>
 		</section>
 		<section class="sec-content hide-print">
-			<% include SideNav %>
+			<% include DirectorySideNav %>
 		</section>
 	</div>
 </div>

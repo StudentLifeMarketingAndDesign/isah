@@ -6,9 +6,10 @@
 			$Breadcrumbs
 			<h1>$Title</h1>
 			$Content
+			<% include FeedbackLink %>
 		</section>
 		<section class="sec-content hide-print">
-			<% include SideNav %>
+			<% include DirectorySideNav %>
 		</section>
 	</div>
 </div>

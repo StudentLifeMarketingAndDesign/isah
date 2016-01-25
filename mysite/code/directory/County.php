@@ -47,7 +47,7 @@ class County extends DataObject {
 	}
 
 	public function Link() {
-		return 'directory/county/'.$this->URLSegment.'/';
+		return 'directory/county/show/'.$this->URLSegment.'/';
 	}
 
 	public function getCategories() {
@@ -73,8 +73,17 @@ class County extends DataObject {
 			$filteredCategories->push($filteredCategory);
 
 		}
+		$filteredCategories->sort('Title ASC');
 
-		return $filteredCategories->sort('Title ASC');
+		return $filteredCategories;
+
+	}
+
+	public function getSaCenters() {
+		$categories = $this->getCategories();
+		$centerCat  = $categories->filter(array('Title' => 'SA Center'));
+
+		return $centerCat;
 
 	}
 }

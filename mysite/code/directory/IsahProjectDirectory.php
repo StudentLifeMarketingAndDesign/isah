@@ -58,14 +58,18 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 	private static $allowed_actions = array(
 		'CountyForm',
 		'load',
+		'show',
+		'countyList',
 		'county',
 		'FeedbackForm',
-		
+
 	);
 
 	private static $url_handlers = array(
-		'load/$Name'         => 'load',
-		'county/$URLSegment' => 'county',
+		'county//$Action/$ID/' => 'county',
+		/*'load/$Name'              => 'load',
+	'county/list'             => 'countyList',
+	'county/show/$URLSegment' => 'county',*/
 	);
 
 	public function FeedbackForm() {
@@ -137,33 +141,59 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 		return $this->redirect($this->Link());
 	}
 
-
 	public function county() {
-		$urlSegment = $this->getRequest()->param('URLSegment');
-		$county     = County::get()->filter(array('URLSegment' => $urlSegment))->First();
+		$action = $this->getRequest()->param('Action');
 
-		$data = new ArrayData(array('County' => $county));
+		switch ($action) {
 
-		return $this->customise($data)->renderWith(array('County', 'Page'));
+			case 'show':
+				$urlSegment = $this->getRequest()->param('ID');
+				$county     = County::get()->filter(array('URLSegment' => $urlSegment))->First();
+				if ($county) {
+					$data = new ArrayData(array('County' => $county));
+					return $this->customise($data)->renderWith(array('County', 'Page'));
+				}
+			case 'list':
+				$counties = County::get()->sort('Title ASC');
+				$data     = new ArrayData(
+					array(
+						'Counties' => $counties,
+						'Title'    => 'Counties',
+						'Action'   => 'list',
+					)
+				);
+				return $this->customise($data)->renderWith(array('CountyList', 'Page'));
+
+			case 'load':
+
+				$countyName = $this->getRequest()->param('ID');
+
+				if (is_numeric($countyName)) {
+					$county = County::get()->filter(array('ID' => $countyName));
+				} else {
+					$county = County::get()->filter(array(
+							'URLSegment' => $countyName,
+						))->First();
+				}
+
+				if ($county) {
+					$data = new ArrayData(array(
+							'County' => $county,
+						));
+					return $this->customise($data)->renderWith('CountyRequest');
+				} else {
+
+				}
+
+			default:
+				$this->redirect('home/');
+
+		}
+
 	}
 
 	public function load() {
-		$countyName = $this->getRequest()->param('Name');
 
-		if (is_numeric($countyName)) {
-			echo "is numeric";
-			$county = County::get()->filter(array('ID' => $countyName));
-		} else {
-			$county = County::get()->filter(array(
-					'URLSegment' => $countyName,
-				))->First();
-		}
-
-		$data = new ArrayData(array(
-				'County' => $county,
-			));
-
-		return $this->customise($data)->renderWith('CountyRequest');
 	}
 
 	public function getCountyInfo($data, Form $form) {

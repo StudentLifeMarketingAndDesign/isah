@@ -16,7 +16,7 @@
           </div>
           <div class="large-8 columns">
               $CountyForm
-
+              <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
           </div>
         </div>
 
@@ -31,11 +31,11 @@
           <h3><a href="$Link">$MenuTitle</a></h3>
           <p>$Content.Summary(50) <a href="$Link">Continue reading</a></p>
         <% end_loop %>
-        Is this information accurate? <% include FeedbackModal %>
+
 
       </section>
       <section class="sec-content hide-print">
-        <% include SideNav %>
+        <% include DirectorySideNav %>
       </section>
 
   </div>
