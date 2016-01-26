@@ -70,17 +70,28 @@ class Page_Controller extends ContentController {
 		$memberName  = '';
 		$memberEmail = '';
 
+		if ($county != null) {
+			$countyDropdown = DropdownField::create(
+				'County',
+				'If your feedback is related to a specific county please select one from below:',
+				IsahProject::get('County')->map('ID', 'Title'),
+				$county->ID
+			)->setEmptyString('(Not related to a specific county)');
+
+		} else {
+			$countyDropdown = DropdownField::create(
+				'County',
+				'If your feedback is related to a specific county please select one from below:',
+				IsahProject::get('County')->map('ID', 'Title')
+			)                          ->setEmptyString('(Not related to a specific county)');
+		}
+
 		$fields = new FieldList(
 
 			new TextField('Name', '<span>*</span>Your Name', $memberName),
 			new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
 
-			DropdownField::create(
-				'County',
-				'If your feedback is related to a specific county please select one from below:',
-				IsahProject::get('County')->map('ID', 'Title'),
-				$county->ID
-			)->setEmptyString('(Not related to a specific county)'),
+			$countyDropdown,
 
 			new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
 			new HiddenField('PageID', 'PageID', $this->ID)

@@ -22,13 +22,15 @@
 					
 				<% include NearbyProjectCenters %>
 		<% end_if %>
-
+		<% if $Categories %>
 		<h3>$Title County Resources:</h3>
 			<% loop $Categories %>
 				<% include IsahCatCard %>
 			<% end_loop %>
-
+		<% end_if %>
 	<% end_with %>
+
+	<hr />
 		<% include FeedbackLink %>
 		</section>
 		<section class="sec-content hide-print">

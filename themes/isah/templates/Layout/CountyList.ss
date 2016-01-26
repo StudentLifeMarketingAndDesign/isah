@@ -35,6 +35,7 @@
 				</div>
 			$Content
 			$Form
+			<hr />
 			<% include FeedbackLink %>
 		</section>
 		<section class="sec-content hide-print">
