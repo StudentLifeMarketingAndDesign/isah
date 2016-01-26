@@ -66,7 +66,7 @@ class Page_Controller extends ContentController {
 
 	public function FeedbackForm() {
 		$county = $this->getRequestedCounty();
-		print_r($county->ID);
+		//print_r($county->ID);
 		$memberName  = '';
 		$memberEmail = '';
 
