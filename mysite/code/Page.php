@@ -55,7 +55,7 @@ class Page_Controller extends ContentController {
 			default:
 				$county = County::get()->filter(array('URLSegment' => $id))->First();
 		}
-		if ($county) {
+		if ($county != null) {
 			return $county;
 		} else {
 			$county     = new DataObject();
