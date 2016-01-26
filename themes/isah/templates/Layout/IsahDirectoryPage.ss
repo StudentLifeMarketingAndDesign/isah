@@ -6,6 +6,7 @@
 			$Breadcrumbs
 			<h1>$Title</h1>
 			$Content
+			<hr />
 			<% include FeedbackLink %>
 		</section>
 		<section class="sec-content hide-print">
