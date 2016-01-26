@@ -23,3 +23,4 @@
 <p>No results found.</p>
 <% end_if %>
 <hr />
+<% include FeedbackLink %>

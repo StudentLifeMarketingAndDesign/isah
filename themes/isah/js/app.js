@@ -10,12 +10,20 @@ $(document).ready(function() {
 		var countyHash = window.location.hash.substr(1);
 		$('#Form_CountyForm_County').val(countyHash);
 		$('#results').load('directory/county/load/'+ countyHash);
+    $('.open-feedback').magnificPopup({
+        type: 'inline',
+        preloader: false,
+   });
 	} else {
 	  // Fragment doesn't exist
 	}	
 
 	  $('#Form_CountyForm_County').on('change', function(e){
 	      $('#results').load('directory/county/load/'+ $('#Form_CountyForm_County').val());
+        $('.open-feedback').magnificPopup({
+            type: 'inline',
+            preloader: false,
+       });
 	      window.location.hash = '#'+$('#Form_CountyForm_County').val();
 	  });
 	  $('#get-location').on('click', function(e){

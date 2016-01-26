@@ -4,7 +4,9 @@
     <div class="white-cover"></div>
       <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
         $Breadcrumbs
-
+        <% if FeedbackSuccess %>
+          <p><strong>Thanks for submitting feedback to us, we've received your message.</strong></p>
+        <% end_if %>
         <h1>Directory</h1>
         <p>Click "use my location" or choose a county below to find resources near you. Your location information is not stored or tracked by us.</p>
         <div class="row small-collapse">
@@ -16,10 +18,10 @@
           </div>
           <div class="large-8 columns">
               $CountyForm
-              <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
+
           </div>
         </div>
-
+                      <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
         <!--<div id="mapholder"></div>
 
         <p id="demo"></p>-->

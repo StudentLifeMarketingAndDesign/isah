@@ -37,13 +37,36 @@ class Page_Controller extends ContentController {
 
 	public function init() {
 		parent::init();
+		$this->getRequestedCounty();
 
 	}
 	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
 		return parent::Breadcrumbs(20, false, false, true);
 	}
-	public function FeedbackForm() {
 
+	public function getRequestedCounty() {
+
+		$action = $this->getRequest()->param('Action');
+		$id     = $this->getRequest()->param('OtherID');
+
+		switch ($action) {
+			case 'list':
+				return null;
+			default:
+				$county = County::get()->filter(array('URLSegment' => $id))->First();
+		}
+		if ($county) {
+			return $county;
+		} else {
+			$county     = new DataObject();
+			$county->ID = 0;
+			return $county;
+		}
+	}
+
+	public function FeedbackForm() {
+		$county = $this->getRequestedCounty();
+		print_r($county->ID);
 		$memberName  = '';
 		$memberEmail = '';
 
@@ -51,7 +74,14 @@ class Page_Controller extends ContentController {
 
 			new TextField('Name', '<span>*</span>Your Name', $memberName),
 			new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
-			DropdownField::create('County', 'If your feedback is related to a specific county please select one from below:', IsahProject::get('County')->map('ID', 'Title'))->setEmptyString('(None)'),
+
+			DropdownField::create(
+				'County',
+				'If your feedback is related to a specific county please select one from below:',
+				IsahProject::get('County')->map('ID', 'Title'),
+				$county->ID
+			)->setEmptyString('(Not related to a specific county)'),
+
 			new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
 			new HiddenField('PageID', 'PageID', $this->ID)
 
