@@ -9,13 +9,21 @@ $(document).ready(function() {
 	if(window.location.hash) {
 		var countyHash = window.location.hash.substr(1);
 		$('#Form_CountyForm_County').val(countyHash);
-		$('#results').load('directory/load/'+ countyHash);
+		$('#results').load('directory/county/load/'+ countyHash);
+    $('.open-feedback').magnificPopup({
+        type: 'inline',
+        preloader: false,
+   });
 	} else {
 	  // Fragment doesn't exist
 	}	
 
 	  $('#Form_CountyForm_County').on('change', function(e){
-	      $('#results').load('directory/load/'+ $('#Form_CountyForm_County').val());
+	      $('#results').load('directory/county/load/'+ $('#Form_CountyForm_County').val());
+        $('.open-feedback').magnificPopup({
+            type: 'inline',
+            preloader: false,
+       });
 	      window.location.hash = '#'+$('#Form_CountyForm_County').val();
 	  });
 	  $('#get-location').on('click', function(e){
@@ -56,7 +64,7 @@ function locationSuccess(position){
 
           //alert(countyName);
 
-          $('#results').load('directory/load/'+ countyName);
+          $('#results').load('directory/county/load/'+ countyName);
           window.location.hash = '#'+ countyName;
           
         }
@@ -127,7 +135,7 @@ function showError(error) {
             break;
         case error.POSITION_UNAVAILABLE:
 
-            x.innerHTML = "Location information is unavailable."
+            x.innerHTML = "Locatiotn information is unavailable."
             break;
         case error.TIMEOUT:
             x.innerHTML = "The request to get user location timed out."
