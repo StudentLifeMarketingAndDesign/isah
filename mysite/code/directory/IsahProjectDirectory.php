@@ -93,6 +93,7 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 					$data = new ArrayData(array('County' => $county));
 					return $this->customise($data)->renderWith(array('County', 'Page'));
 				}
+				
 			case 'list':
 				$counties = County::get()->sort('Title ASC');
 				$data     = new ArrayData(
@@ -115,18 +116,19 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 							'URLSegment' => $countyName,
 						))->First();
 				}
-
-				if ($county) {
+				
+				if ($county != null) {
 					$data = new ArrayData(array(
 							'County' => $county,
 						));
 					return $this->customise($data)->renderWith('CountyRequest');
 				} else {
-
+				
+					return $this->renderWith('CountyRequest');
 				}
-
+				break;
 			default:
-				$this->redirect('home/');
+				$this->redirect('about');
 
 		}
 
