@@ -4,7 +4,9 @@
     <div class="white-cover"></div>
       <section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
         $Breadcrumbs
-
+        <% if FeedbackSuccess %>
+          <p><strong>Thanks for submitting feedback to us, we've received your message.</strong></p>
+        <% end_if %>
         <h1>Directory</h1>
         <p>Click "use my location" or choose a county below to find resources near you. Your location information is not stored or tracked by us.</p>
         <div class="row small-collapse">
@@ -19,7 +21,7 @@
 
           </div>
         </div>
-
+                      <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
         <!--<div id="mapholder"></div>
 
         <p id="demo"></p>-->
@@ -31,11 +33,11 @@
           <h3><a href="$Link">$MenuTitle</a></h3>
           <p>$Content.Summary(50) <a href="$Link">Continue reading</a></p>
         <% end_loop %>
-        Is this information accurate? <% include FeedbackModal %>
+
 
       </section>
       <section class="sec-content hide-print">
-        <% include SideNav %>
+        <% include DirectorySideNav %>
       </section>
 
   </div>

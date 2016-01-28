@@ -13,7 +13,7 @@
 						<% if $Website %><p><a href="$Website" class="btn btn-small" target="_blank">Visit website &rarr;</a></p><% end_if %>
 				</div>
 
-				<div class="large-4 large-offset-1 columns">
+				<div class="large-3 large-offset-2 columns">
 					<p>Jump to county:</p>
 					<ul>
 						<% loop $Counties %>
@@ -36,9 +36,10 @@
 			<% end_loop %>
 			$Content
 			$Form
+			<% include FeedbackLink %>
 		</section>
 		<section class="sec-content hide-print">
-			<% include SideNav %>
+			<% include DirectorySideNav %>
 		</section>
 	</div>
 </div>

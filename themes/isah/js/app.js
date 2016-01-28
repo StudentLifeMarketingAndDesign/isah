@@ -5,28 +5,45 @@ $(document).ready(function() {
 		preloader: false,
 		
 	});
+  var geocoder;  // this object will handle the position<->address conversion
+  /* Shows county map on County page type
+  showCounty();
+  /*
+
+  /* Function that uses geocoding to center the map around a county based on the county's name. INCOMPLETE. */
+  /*
   geocoder = new google.maps.Geocoder();
       geocoder.geocode({'address': 'Marshall County, IA'}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           var geocounty = results[0];
-          //showCounty(geocounty);
+          showCounty(geocounty);
           console.log(results);
         }else{
           alert('error');
         }
-      });
+      });*/
   
+
+  /* Check for a #county-name in the url attempt to show the results accordingly. */
 
 	if(window.location.hash) {
 		var countyHash = window.location.hash.substr(1);
 		$('#Form_CountyForm_County').val(countyHash);
-		$('#results').load('directory/load/'+ countyHash);
+		$('#results').load('directory/county/load/'+ countyHash);
+    $('.open-feedback').magnificPopup({
+        type: 'inline',
+        preloader: false,
+   });
 	} else {
 	  // Fragment doesn't exist
 	}	
 
 	  $('#Form_CountyForm_County').on('change', function(e){
-	      $('#results').load('directory/load/'+ $('#Form_CountyForm_County').val());
+	      $('#results').load('directory/county/load/'+ $('#Form_CountyForm_County').val());
+        $('.open-feedback').magnificPopup({
+            type: 'inline',
+            preloader: false,
+       });
 	      window.location.hash = '#'+$('#Form_CountyForm_County').val();
 	  });
 	  $('#get-location').on('click', function(e){
@@ -35,10 +52,6 @@ $(document).ready(function() {
 	  });
 });
 
-
-var geocoder;  // this object will handle the position<->address conversion
-//var x = document.getElementById("demo");
-//var countyName;
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -67,7 +80,7 @@ function locationSuccess(position){
 
           //alert(countyName);
 
-          $('#results').load('directory/load/'+ countyName);
+          $('#results').load('directory/county/load/'+ countyName);
           window.location.hash = '#'+ countyName;
           
         }
@@ -154,7 +167,7 @@ function showCounty(position) {
    // x.innerHTML = "Location found."
       /*lat = position.coords.latitude;
       lon = position.coords.longitude;*/
-          lat = 41.663475;
+    lat = 41.663475;
     lon =-91.5378082;
       latlon = new google.maps.LatLng(lat, lon);
     // okay, now we have the position (as a google maps latLng object), 
@@ -187,7 +200,7 @@ function showError(error) {
             break;
         case error.POSITION_UNAVAILABLE:
 
-            x.innerHTML = "Location information is unavailable."
+            x.innerHTML = "Locatiotn information is unavailable."
             break;
         case error.TIMEOUT:
             x.innerHTML = "The request to get user location timed out."

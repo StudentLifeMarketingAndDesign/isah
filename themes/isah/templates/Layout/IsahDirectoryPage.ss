@@ -4,11 +4,12 @@
 		<div class="white-cover"></div>
 		<section class="main-content <% if $BackgroundImage %>margin-top<% end_if %>">
 			$Breadcrumbs
-			<h1>$Title</h1>
 			$Content
+			<hr />
+			<% include FeedbackLink %>
 		</section>
 		<section class="sec-content hide-print">
-			<% include SideNav %>
+			<% include DirectorySideNav %>
 		</section>
 	</div>
 </div>
