@@ -32,7 +32,7 @@ class IsahResource extends DataObject {
 
 		$f = new FieldList();
 		$f->push(new TextField('Title', 'Title'));
-		$catField = TagField::create('Categories', 'Categories', IsahResourceCategory::get(), $this->Categories())->setShouldLazyLoad(true);
+		$catField = TagField::create('Categories', 'Categories (use the category "SA Center" to denote a center\'s location)', IsahResourceCategory::get(), $this->Categories())->setShouldLazyLoad(true);
 		$f->push($catField);
 
 		$f->push(new TextField('Phone', 'Phone number'));
