@@ -35,7 +35,7 @@ class IsahResource extends DataObject {
 		$catField = TagField::create('Categories', 'Categories (use the category "SA Center" to denote a center\'s location)', IsahResourceCategory::get(), $this->Categories())->setShouldLazyLoad(true);
 		$f->push($catField);
 
-		$f->push(new TextField('Phone', 'Phone number'));
+		
 		$f->push(new TextField('Email', 'Email Address'));
 		$f->push(new TextField('Website', 'Website URL (please include the http:// or https://)'));
 
@@ -43,6 +43,7 @@ class IsahResource extends DataObject {
 		foreach ($addrFields as $field) {
 			$f->push($field);
 		}
+		$f->push(new TextField('Phone', 'Phone number'));
 		//$f->push(new TextField('POBox', 'P.O. Box (if separate from address above)'));
 		$f->push(new TextareaField('FriendlyDirections', 'Friendly directions'));
 
