@@ -31,6 +31,7 @@ module.exports = function(grunt) {
       js:{
         src: [
           'division-project/build/build.src.js',
+            '<%=globalConfig.themeDir %>/bower_components/map-icons/dist/js/map-icons.js',
             '<%=globalConfig.themeDir %>/js/app.js',
           ],
         dest: '<%=globalConfig.themeDir %>/build/build.src.js'

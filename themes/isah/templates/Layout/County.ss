@@ -1,5 +1,5 @@
 
-<div class="img-container lazy" data-src="$URL" style="background-position: $PercentageX% $PercentageY%; ">
+<div id="resourcemap" class="img-container lazy" data-src="$URL" style="background-position: $PercentageX% $PercentageY%; ">
 	<div id="mapholder"></div>
 	<div class="img-fifty-top"></div>
 </div>
