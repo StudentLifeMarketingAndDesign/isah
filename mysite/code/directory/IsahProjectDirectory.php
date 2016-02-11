@@ -30,10 +30,7 @@ class IsahProjectDirectory extends Page {
 		return $fields;
 	}
 
-	public function OtherDirectoryResources() {
 
-		return $this->Children()->filter(array('ClassName' => 'IsahDirectoryPage'));
-	}
 
 }
 

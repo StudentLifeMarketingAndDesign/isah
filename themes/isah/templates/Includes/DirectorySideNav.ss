@@ -20,8 +20,7 @@
 
 			<% end_loop %>
 
-			<li><a href="directory/">Sexual Assault Projects</a>
-				<ul class="second-level">
+
 					<% loop IsahProjects %>
 						<li <% if $LinkOrCurrent = "current" %>class="active"<% end_if %>>
 						<a href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a>
@@ -51,8 +50,7 @@
 						
 						</li>
 					<% end_loop %>
-				</ul>
-			</li>
+
 		
 	</ul>
 </nav>

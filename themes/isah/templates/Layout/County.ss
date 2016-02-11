@@ -32,6 +32,7 @@
 
 	<hr />
 		<% include FeedbackLink %>
+		<% include OtherDirectoryResources %>
 		</section>
 		<section class="sec-content hide-print">
 			<% include DirectorySideNav %>

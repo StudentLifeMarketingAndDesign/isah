@@ -33,6 +33,15 @@ class Page_Controller extends ContentController {
 		parent::init();
 
 	}
+
+	public function IsahProjects(){
+
+		return IsahProject::get()->sort('Title ASC');
+	}
+	public function OtherDirectoryResources() {
+
+		return IsahDirectoryPage::get();
+	}
 	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
 		return parent::Breadcrumbs(20, false, false, true);
 	}
