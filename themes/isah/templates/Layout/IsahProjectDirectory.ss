@@ -27,7 +27,9 @@
         <p id="demo"></p>-->
         <hr />
 
-        <div id="results"></div>
+        <div id="results" style="display:none;">
+          <h2>Loading results...</h2>
+        </div>
         <% include OtherDirectoryResources %>
 
 

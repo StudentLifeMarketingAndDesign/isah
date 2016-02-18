@@ -7174,10 +7174,13 @@ function locationSuccess(position){
           //countyName =  convertToSlug(countyName);
 
           //alert(countyName);
-
+          $('#results').show();
+          var element_to_scroll_to = document.getElementById('results');
+          element_to_scroll_to.scrollIntoView();
           $('#results').load('directory/county/load/'+ countyName);
+
           window.location.hash = '#'+ countyName;
-          
+
         }
       });
   //showPosition(position);
@@ -7317,7 +7320,10 @@ function getCounty(geocodeResponse) {
         if(window.location.hash) {
           var countyHash = window.location.hash.substr(1);
           $('#Form_CountyForm_County').val(countyHash);
+          $('#results').show();
           $('#results').load('directory/county/load/'+ countyHash);
+          var element_to_scroll_to = document.getElementById('results');
+          element_to_scroll_to.scrollIntoView();
           $('.open-feedback').magnificPopup({
               type: 'inline',
               preloader: false,
@@ -7327,7 +7333,10 @@ function getCounty(geocodeResponse) {
         } 
 
           $('#Form_CountyForm_County').on('change', function(e){
+              $('#results').show();
               $('#results').load('directory/county/load/'+ $('#Form_CountyForm_County').val());
+              var element_to_scroll_to = document.getElementById('results');
+              element_to_scroll_to.scrollIntoView();
               $('.open-feedback').magnificPopup({
                   type: 'inline',
                   preloader: false,
