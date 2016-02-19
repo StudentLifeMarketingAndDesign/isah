@@ -7172,12 +7172,13 @@ function locationSuccess(position){
           var countyName = convertToSlug(county);
           countyName = countyName.replace("-county", "");
           //countyName =  convertToSlug(countyName);
-
+          $('#directory-form').hide();
           //alert(countyName);
           $('#results').show();
-          var element_to_scroll_to = document.getElementById('results');
-          element_to_scroll_to.scrollIntoView();
+
           $('#results').load('directory/county/load/'+ countyName);
+
+
 
           window.location.hash = '#'+ countyName;
 
@@ -7320,10 +7321,9 @@ function getCounty(geocodeResponse) {
         if(window.location.hash) {
           var countyHash = window.location.hash.substr(1);
           $('#Form_CountyForm_County').val(countyHash);
+          $('#directory-form').hide();
           $('#results').show();
           $('#results').load('directory/county/load/'+ countyHash);
-          var element_to_scroll_to = document.getElementById('results');
-          element_to_scroll_to.scrollIntoView();
           $('.open-feedback').magnificPopup({
               type: 'inline',
               preloader: false,
@@ -7333,10 +7333,9 @@ function getCounty(geocodeResponse) {
         } 
 
           $('#Form_CountyForm_County').on('change', function(e){
+              $('#directory-form').hide();
               $('#results').show();
               $('#results').load('directory/county/load/'+ $('#Form_CountyForm_County').val());
-              var element_to_scroll_to = document.getElementById('results');
-              element_to_scroll_to.scrollIntoView();
               $('.open-feedback').magnificPopup({
                   type: 'inline',
                   preloader: false,

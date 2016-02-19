@@ -8,30 +8,33 @@
           <p><strong>Thanks for submitting feedback to us, we've received your message.</strong></p>
         <% end_if %>
         <h1>Directory</h1>
-        <p>Click "use my location" or choose a county below to find resources near you. Your location information is not stored or tracked by us.</p>
-        <div class="row small-collapse">
-          <div class="large-3 columns">
-            <p><button class="btn btn-large btn-primary" id="get-location">Use my location</button></p>
-          </div>
-          <div class="large-1 columns">
-            <p class="or-padding">Or...</p>
-          </div>
-          <div class="large-8 columns">
-              $CountyForm
+        <div id="directory-form">
+        $Content
+          <div class="row small-collapse">
+            <div class="large-3 columns">
+              <p><button class="btn btn-large btn-primary" id="get-location">Use my location</button></p>
+            </div>
+            <div class="large-1 columns">
+              <p class="or-padding">Or...</p>
+            </div>
+            <div class="large-8 columns">
+                $CountyForm
 
+            </div>
           </div>
+            <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
+          <!--<div id="mapholder"></div>
+
+          <p id="demo"></p>-->
+          <hr />
         </div>
-                      <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
-        <!--<div id="mapholder"></div>
-
-        <p id="demo"></p>-->
-        <hr />
 
         <div id="results" style="display:none;">
           <h2>Loading results...</h2>
         </div>
         <% include OtherDirectoryResources %>
-
+        <hr />
+<% include FeedbackLink %>
 
       </section>
       <section class="sec-content hide-print">

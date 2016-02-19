@@ -1,6 +1,8 @@
 <% if $County.Resources || $County.Project %>
 	<% with $County %>
+	<p><a href="directory/" class="btn">Start a new search</a></p>
 	<h2>Showing results for <a href="$Link">$Title County</a>:</h2>
+
 		<% if $Project %>
 			<div class="project">
 				<p class="cat-name">Sexual Assault Project for $Title County</p>
@@ -20,7 +22,5 @@
 		<% end_if %>
 	<% end_with %>
 <% else %>
-<p>No results found.</p>
+<p>No results found. If you feel you've received this message in error, please click the feedback link below.</p>
 <% end_if %>
-<hr />
-<% include FeedbackLink %>
