@@ -17,7 +17,8 @@ class IsahProjectDirectory extends Page {
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
-		//$fields->removeByName('Content');
+		$fields->removeByName('Content');
+		$fields->addFieldToTab("Root.Main", HTMLEditorField::create('Content', 'Content')->setRows(3));
 		//$fields->removeByName('BackgroundImage');
 		$fields->removeByName('Metadata');
 
