@@ -8,9 +8,10 @@
 				<% if $TwentyFourHourCrisisLine %><strong>24 hour crisis line: </strong>$TwentyFourHourCrisisLine <br /><% end_if %>
 				<% if $SpanishLine %><strong>Spanish line: </strong>$SpanishLine <br /><% end_if %>
 				<% if $Phone %><strong>Office phone number: </strong>$Phone<br /><% end_if %>
+				<% if $Fax %><strong>Fax:</strong> $Fax<br /><% end_if %>
 				<% if $OutreachOffices %><strong>Outreach offices: </strong>$OutreachOffices <br /><% end_if %>
 				<% if $CrisisLines %><strong>Other crisis lines: </strong>$CrisisLines <br /><% end_if %>
-				<% if $Fax %><strong>Fax:</strong> $Fax<br /><% end_if %>
+				
 				<% if $ServicesOffered %><strong>Services offered: </strong>$ServicesOffered <br /><% end_if %>
 			</p>
 		
