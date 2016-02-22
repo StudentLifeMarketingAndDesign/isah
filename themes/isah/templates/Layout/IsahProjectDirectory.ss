@@ -31,6 +31,7 @@
 
         <div id="results" style="display:none;">
           <h2>Loading results...</h2>
+          <img src="{$ThemeDir}/images/ajax-loader.gif" />
         </div>
         <% include OtherDirectoryResources %>
         <hr />

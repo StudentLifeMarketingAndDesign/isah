@@ -187,7 +187,9 @@ function getCounty(geocodeResponse) {
         } else {
           // Fragment doesn't exist
         } 
-
+          // $("body").on('click', '#new-search-btn', function(e) {
+          //     console.log("savenewlang has been clicked");
+          // });
           $('#Form_CountyForm_County').on('change', function(e){
               $('#directory-form').hide();
               $('#results').show();
