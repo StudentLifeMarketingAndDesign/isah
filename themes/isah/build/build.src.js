@@ -7317,6 +7317,7 @@ function getCounty(geocodeResponse) {
     // About us page, note the change from about-us to about_us.
     'IsahProjectDirectory': {
       init: function() {
+        var loadingDiv = $('#results').clone();
 
         if(window.location.hash) {
           var countyHash = window.location.hash.substr(1);
@@ -7332,6 +7333,13 @@ function getCounty(geocodeResponse) {
           // Fragment doesn't exist
         } 
 
+          //New search, reset everything.
+          $("body").on('click', '#new-search-btn', function(e) {
+
+             $('#results').hide();
+             $('#results').replaceWith(loadingDiv.clone());
+             $('#directory-form').show();
+          });
           $('#Form_CountyForm_County').on('change', function(e){
               $('#directory-form').hide();
               $('#results').show();

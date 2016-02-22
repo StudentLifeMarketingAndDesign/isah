@@ -35,7 +35,7 @@
         </div>
         <% include OtherDirectoryResources %>
         <hr />
-<% include FeedbackLink %>
+        <% include FeedbackLink %>
 
       </section>
       <section class="sec-content hide-print">
