@@ -22,6 +22,7 @@
 		<% end_if %>
 	<% end_with %>
 <% else %>
+<p><button class="btn" id="new-search-btn">Start a new search</button></p>
 <h2>No results found for $County.Title County</h2>
 <p> If you feel you've received this message in error, please click the feedback link at the bottom of this page.</p>
 <% end_if %>

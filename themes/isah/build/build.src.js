@@ -7178,9 +7178,14 @@ function locationSuccess(position){
 
           $('#results').load('directory/county/load/'+ countyName);
 
+              if(history.pushState) {
+                  history.pushState(null, null, 'directory/#'+ countyName);
+              }
+              else {
+                  window.location.hash = '#'+ countyName;
+              }
 
-
-          window.location.hash = '#'+ countyName;
+          
 
         }
       });
@@ -7339,6 +7344,8 @@ function getCounty(geocodeResponse) {
              $('#results').hide();
              $('#results').replaceWith(loadingDiv.clone());
              $('#directory-form').show();
+
+             $("#Form_CountyForm_County").val("");
           });
           $('#Form_CountyForm_County').on('change', function(e){
               $('#directory-form').hide();
@@ -7348,7 +7355,13 @@ function getCounty(geocodeResponse) {
                   type: 'inline',
                   preloader: false,
              });
-              window.location.hash = '#'+$('#Form_CountyForm_County').val();
+              if(history.pushState) {
+                  history.pushState(null, null, 'directory/#'+$('#Form_CountyForm_County').val());
+              }
+              else {
+                  window.location.hash = '#'+$('#Form_CountyForm_County').val();
+              }
+              
           });
           $('#get-location').on('click', function(e){
               //$('#results').innerHTML = 'Loading...';
