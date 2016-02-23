@@ -125,29 +125,33 @@ function resources(){
     if (resource) {
       var lat = $(this).data("lat");
       var lng = $(this).data("lng");
+      var address = $(this).data("address");
+      var addressOnly = $(this).data("address-only");
 
-      if ((lat != 0) && (lng != 0)) {
+      if (addressOnly.length != 0){
+        
+          if ((lat != 0) && (lng != 0)) {
 
-        var title = $(this).data("title");
-        var address = $(this).data("address");
-        var phone = $(this).data("phone");
+            var title = $(this).data("title");
+            
+            var phone = $(this).data("phone");
 
-        var website = $(this).data("website");
-        var category = $(this).data("cat");
+            var website = $(this).data("website");
+            var category = $(this).data("cat");
 
-        if (website) {
-          website = "<a href="+website+" target='_blank'>Website</a>"; 
-        }
-       
-        resourceLocations[resources] = [title, lat, lng, address, phone, website, category];
-        resources++;
+            if (website) {
+              website = "<a href="+website+" target='_blank'>Website</a>"; 
+            }
+           
+            resourceLocations[resources] = [title, lat, lng, address, phone, website, category];
+            resources++;
+          }
       }
-
     } 
 
 
   });
-
+    console.log(resourceLocations);
     return resourceLocations;
 }
 
