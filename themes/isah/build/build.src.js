@@ -7309,17 +7309,17 @@ function showError(error) {
     x.show();
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            x.html("User denied the request for Geolocation.");
+            x.html("Location services on this device/browser are not allowed. Please check your device's settings");
             break;
         case error.POSITION_UNAVAILABLE:
 
-            x.html("We couldn't find your location because your device may not have allowed us to.");
+            x.html("We couldn't find your location because your device/browser may not have allowed us to.");
             break;
         case error.TIMEOUT:
-            x.html("The request to get user location timed out.");
+            x.html("The request to get your location has timed out.");
             break;
         case error.UNKNOWN_ERROR:
-            x.html("An unknown error occurred.");
+            x.html("An unknown error occurred when trying to get your location information. Give us feedback by clicking the link at the bottom of the page.");
             break;
     }
 }
