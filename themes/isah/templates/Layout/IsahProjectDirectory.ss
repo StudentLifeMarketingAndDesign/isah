@@ -8,6 +8,7 @@
           <p><strong>Thanks for submitting feedback to us, we've received your message.</strong></p>
         <% end_if %>
         <h1>Directory</h1>
+         <p id="geo-message" style="display: none;"></p>
         <div id="directory-form">
         $Content
           <div class="row small-collapse">
@@ -25,7 +26,7 @@
             <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
           <!--<div id="mapholder"></div> -->
 
-          <p id="geo-message" style="display: none;"></p>
+         
           <hr />
         </div>
           <div id="loading" style="display:none;">
