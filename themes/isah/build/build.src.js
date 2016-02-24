@@ -7239,7 +7239,7 @@ function locationSuccess(position){
                 }
             }else{
               x.show();
-              x.html("We couldn't get an accurate location from your device. Please select a county from the dropdown or <a href='directory/county/list'>view a list of counties &rarr;</a>");
+              x.html("We couldn't get an accurate location from your device. Some desktops require wifi to be enabled for the most accurate results. Please select a county from the dropdown or <a href='directory/county/list'>view a list of counties &rarr;</a>");
             }
           
 
