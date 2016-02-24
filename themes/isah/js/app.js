@@ -32,6 +32,7 @@ function resetSearchForm(){
     }
 }
 function loadFromHash(){
+  x.hide();
   var countyHash = window.location.hash.substr(1);
  
   if(countyHash != ''){
@@ -58,14 +59,12 @@ function loadFromHash(){
   }
 }
 function locationSuccess(position){
+      x.hide();
       lat = position.coords.latitude;
       lon = position.coords.longitude;
       accuracy = position.coords.accuracy;
 
       latlon = new google.maps.LatLng(lat, lon);
-
-
-      console.log(position);
       geocoder = new google.maps.Geocoder();
       geocoder.geocode({'latLng': latlon}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -95,7 +94,7 @@ function locationSuccess(position){
                 }
             }else{
               x.show();
-              x.html("We couldn't get an accurate location from your device. Some desktops require wifi to be enabled for the most accurate results. Please select a county from the dropdown or <a href='directory/county/list'>view a list of counties &rarr;</a>");
+              x.html("We couldn't get an accurate location from your device. Some desktops require Wi-Fi to be enabled for the most accurate results. Please select a county from the dropdown or <a href='directory/county/list'>view a list of counties &rarr;</a>");
             }
           
 
@@ -165,7 +164,7 @@ function showError(error) {
     x.show();
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            x.html("Location services on this device/browser are not allowed. Please check your device's settings");
+            x.html("Location services on this device/browser are not allowed. Please check your device's settings.");
             break;
         case error.POSITION_UNAVAILABLE:
 
@@ -253,6 +252,7 @@ function getCounty(geocodeResponse) {
           });
           //User selected something from the dropdown.
           $('#Form_CountyForm_County').on('change', function(e){
+              x.hide();
               $('#loading').show();
               $('#directory-form').hide();
               $('#results').load('directory/county/load/'+ $('#Form_CountyForm_County').val(), function(){
