@@ -7145,7 +7145,7 @@ $(function() {
 
 
 var geocoder;  // this object will handle the position<->address conversion
-var x = document.getElementById("demo");
+var x = document.getElementById("geo-message");
 //var countyName;
 
 function getLocation() {
@@ -7161,7 +7161,7 @@ function locationSuccess(position){
       lat = position.coords.latitude;
       lon = position.coords.longitude;
       latlon = new google.maps.LatLng(lat, lon);
-
+      console.log(position);
       geocoder = new google.maps.Geocoder();
       geocoder.geocode({'latLng': latlon}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -7255,7 +7255,7 @@ function showError(error) {
             break;
         case error.POSITION_UNAVAILABLE:
 
-            x.innerHTML = "Locatiotn information is unavailable."
+            x.innerHTML = "We couldn't find your location because your device may not have allowed us to."
             break;
         case error.TIMEOUT:
             x.innerHTML = "The request to get user location timed out."
@@ -7347,6 +7347,7 @@ function getCounty(geocodeResponse) {
 
              $("#Form_CountyForm_County").val("");
           });
+          //User selected something from the dropdown.
           $('#Form_CountyForm_County').on('change', function(e){
               $('#directory-form').hide();
               $('#results').show();

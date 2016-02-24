@@ -23,9 +23,9 @@
             </div>
           </div>
             <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
-          <!--<div id="mapholder"></div>
+          <!--<div id="mapholder"></div> -->
 
-          <p id="demo"></p>-->
+          <p id="geo-message"></p>
           <hr />
         </div>
 
