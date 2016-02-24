@@ -7149,8 +7149,15 @@ var x = document.getElementById("geo-message");
 //var countyName;
 
 function getLocation() {
+
+  var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+  console.log(options);
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(locationSuccess, showError); // , {maximumAge:60000, timeout:5000, enableHighAccuracy:true}
+        navigator.geolocation.getCurrentPosition(locationSuccess, showError, options); // , {maximumAge:60000, timeout:5000, enableHighAccuracy:true}
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -7160,31 +7167,38 @@ function getLocation() {
 function locationSuccess(position){
       lat = position.coords.latitude;
       lon = position.coords.longitude;
+      accuracy = position.coords.accuracy;
+
       latlon = new google.maps.LatLng(lat, lon);
+
+
       console.log(position);
       geocoder = new google.maps.Geocoder();
       geocoder.geocode({'latLng': latlon}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
 
-          var county = getCounty(results[0]);
-         // document.getElementById('County').innerHTML = 'County: ' + county;
+          if(accuracy < 10000){
+            var county = getCounty(results[0]);
+           // document.getElementById('County').innerHTML = 'County: ' + county;
 
-          var countyName = convertToSlug(county);
-          countyName = countyName.replace("-county", "");
-          //countyName =  convertToSlug(countyName);
-          $('#directory-form').hide();
-          //alert(countyName);
-          $('#results').show();
+            var countyName = convertToSlug(county);
+            countyName = countyName.replace("-county", "");
+            //countyName =  convertToSlug(countyName);
+            $('#directory-form').hide();
+            //alert(countyName);
+            $('#results').show();
 
-          $('#results').load('directory/county/load/'+ countyName);
+            $('#results').load('directory/county/load/'+ countyName);
 
-              if(history.pushState) {
-                  history.pushState(null, null, 'directory/#'+ countyName);
-              }
-              else {
-                  window.location.hash = '#'+ countyName;
-              }
-
+                if(history.pushState) {
+                    history.pushState(null, null, 'directory/#'+ countyName);
+                }
+                else {
+                    window.location.hash = '#'+ countyName;
+                }
+            }else{
+              x.innerHTML = "We couldn't get an accurate location from your device. Please select a county from the dropdown or <a href='directory/county/list'>view a list of counties &rarr;</a>";
+            }
           
 
         }
@@ -7346,6 +7360,12 @@ function getCounty(geocodeResponse) {
              $('#directory-form').show();
 
              $("#Form_CountyForm_County").val("");
+              if(history.pushState) {
+                  history.pushState(null, null, 'directory/');
+              }
+              else {
+                  window.location.hash = '';
+              }
           });
           //User selected something from the dropdown.
           $('#Form_CountyForm_County').on('change', function(e){
