@@ -18,6 +18,7 @@ class IsahProjectDirectory extends Page {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Content');
+		$fields->addFieldToTab("Root.Main", HTMLEditorField::create('Content', 'Content')->setRows(3));
 		//$fields->removeByName('BackgroundImage');
 		$fields->removeByName('Metadata');
 
@@ -30,10 +31,7 @@ class IsahProjectDirectory extends Page {
 		return $fields;
 	}
 
-	public function OtherDirectoryResources() {
 
-		return $this->Children()->filter(array('ClassName' => 'IsahDirectoryPage'));
-	}
 
 }
 
@@ -90,9 +88,16 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 				$urlSegment = $this->getRequest()->param('ID');
 				$county     = County::get()->filter(array('URLSegment' => $urlSegment))->First();
 				if ($county) {
-					$data = new ArrayData(array('County' => $county));
+					$data = new ArrayData(
+						array(
+							'County' => $county,
+							'ClassName' => 'County'
+						)
+					);
 					return $this->customise($data)->renderWith(array('County', 'Page'));
 				}
+				break;
+				
 			case 'list':
 				$counties = County::get()->sort('Title ASC');
 				$data     = new ArrayData(
@@ -115,18 +120,19 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 							'URLSegment' => $countyName,
 						))->First();
 				}
-
+				
 				if ($county) {
 					$data = new ArrayData(array(
 							'County' => $county,
 						));
 					return $this->customise($data)->renderWith('CountyRequest');
-				} else {
-
+				} else {	
+	
+					return $this->renderWith('CountyRequestNotFound');
 				}
-
+				break;
 			default:
-				$this->redirect('home/');
+				$this->redirect('about');
 
 		}
 

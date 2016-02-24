@@ -6,13 +6,7 @@ class Page extends SiteTree {
 
 	private static $has_one = array(
 	);
-	public function OtherDirectoryResources() {
-		return IsahDirectoryPage::get();
-	}
 
-	public function IsahProjects() {
-		return IsahProject::get();
-	}
 }
 class Page_Controller extends ContentController {
 
@@ -37,73 +31,41 @@ class Page_Controller extends ContentController {
 
 	public function init() {
 		parent::init();
-		$this->getRequestedCounty();
 
+	}
+
+	public function IsahProjects(){
+
+		return IsahProject::get()->sort('Title ASC');
+	}
+	public function OtherDirectoryResources() {
+
+		return IsahDirectoryPage::get();
 	}
 	public function Breadcrumbs($maxDepth = 20, $unlinked = false, $stopAtPageType = false, $showHidden = false) {
 		return parent::Breadcrumbs(20, false, false, true);
 	}
-
-	public function getRequestedCounty() {
-
-		$action = $this->getRequest()->param('Action');
-		$id     = $this->getRequest()->param('OtherID');
-
-		switch ($action) {
-			case 'list':
-				return null;
-			default:
-				$county = County::get()->filter(array('URLSegment' => $id))->First();
-		}
-		if ($county != null) {
-			return $county;
-		} else {
-			$county     = new DataObject();
-			$county->ID = 0;
-			return $county;
-		}
-	}
-
 	public function FeedbackForm() {
-		$county = $this->getRequestedCounty();
-		//print_r($county->ID);
-		$memberName  = '';
+
+		$memberName = '';
 		$memberEmail = '';
-
-		if ($county != null) {
-			$countyDropdown = DropdownField::create(
-				'County',
-				'If your feedback is related to a specific county please select one from below:',
-				IsahProject::get('County')->map('ID', 'Title'),
-				$county->ID
-			)->setEmptyString('(Not related to a specific county)');
-
-		} else {
-			$countyDropdown = DropdownField::create(
-				'County',
-				'If your feedback is related to a specific county please select one from below:',
-				IsahProject::get('County')->map('ID', 'Title')
-			)                          ->setEmptyString('(Not related to a specific county)');
-		}
 
 		$fields = new FieldList(
 
-			new TextField('Name', '<span>*</span>Your Name', $memberName),
-			new EmailField('Email', '<span>*</span>Your Email Address', $memberEmail),
-
-			$countyDropdown,
-
+			new TextField('Name', 'Your Name (optional)', $memberName),
+			new EmailField('Email', 'Your Email Address (optional)', $memberEmail),
+			DropdownField::create('County', 'If your feedback is related to a specific county please select one from below:', IsahProject::get('County')->map('Title'))->setEmptyString('(None)'),
 			new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
 			new HiddenField('PageID', 'PageID', $this->ID)
-
+			
 		);
 
-		$actions = new FieldList(
+  		$actions = new FieldList(
 			new FormAction('SubmitFeedbackForm', 'Submit Feedback')
 		);
 
 		// Create action
-		$validator = new RequiredFields('Name', 'Email', 'Feedback');
+		$validator = new RequiredFields('Feedback');
 
 		//Create form
 		$Form = new Form($this, 'FeedbackForm', $fields, $actions, $validator);
@@ -115,7 +77,7 @@ class Page_Controller extends ContentController {
 	}
 
 	public function SubmitFeedbackForm($data, $form) {
-
+	
 		$adminEmail = Config::inst()->get('Email', 'admin_email');
 
 		$feedback = new FeedbackItem();
@@ -126,19 +88,23 @@ class Page_Controller extends ContentController {
 		if ($feedback->SpecificPage == "1") {
 			$relatedPage = Page::get_by_id("Page", $feedback->PageID);
 		}
-
-		$subject = "Feedback submitted";
+		
+		$subject = "[ISAH Website Feedback] New item submitted";
 
 		//check data for errors
-		$name      = Convert::raw2sql($data['Name']);
+		$name = Convert::raw2sql($data['Name']);
 		$userEmail = Convert::raw2sql($data['Email']);
-		$feedback  = Convert::raw2sql($data['Feedback']);
-
-		if (isset($relatedPage)) {
-			$body = ''.$name." has submitted feedback for page ".$relatedPage->Title.". <br><br>Feedback:".$feedback;
-		} else {
-			$body = ''.$name." has submitted feedback. "."<br><br>Feedback:".$feedback;
+		$feedback = Convert::raw2sql($data['Feedback']);
+		$county = Convert::raw2sql($data['County']);
+		if($name){
+			$body = '<p>' . $name . ' (<a href="mailto:'.$userEmail.'">'.$userEmail.'</a>) has submitted feedback.</p>';
+		}else{
+			$body = '<p>An anonymous person has submitted feedback:</p>';
 		}
+
+
+		$body.='<p><strong>Feedback:</strong><br />' . $feedback.'</p>';
+		$body .= '<p><strong>County:</strong><br />'.$county.'</p>';
 
 		$email = new Email();
 		$email->setTo($adminEmail);
@@ -146,18 +112,20 @@ class Page_Controller extends ContentController {
 		$email->setSubject($subject);
 		$email->setBody($body);
 		if (SS_ENVIRONMENT_TYPE == "live") {
-			$email->send();
+			$email->send(); 
 		}
 
 		return $this->redirect($this->Link("?FeedbackSuccess=1"));
 
 	}
 
-	public function FeedbackSuccess() {
-		if ($this->getRequest()->getVar('FeedbackSuccess')) {
+	public function FeedbackSuccess(){
+		if($this->getRequest()->getVar('FeedbackSuccess')) {
 			return true;
 		}
 
 	}
+
+	
 
 }

@@ -8,32 +8,37 @@
           <p><strong>Thanks for submitting feedback to us, we've received your message.</strong></p>
         <% end_if %>
         <h1>Directory</h1>
-        <p>Click "use my location" or choose a county below to find resources near you. Your location information is not stored or tracked by us.</p>
-        <div class="row small-collapse">
-          <div class="large-3 columns">
-            <p><button class="btn btn-large btn-primary" id="get-location">Use my location</button></p>
-          </div>
-          <div class="large-1 columns">
-            <p class="or-padding">Or...</p>
-          </div>
-          <div class="large-8 columns">
-              $CountyForm
+         <p id="geo-message" style="display: none;"></p>
+        <div id="directory-form">
+        $Content
+          <div class="row small-collapse">
+            <div class="large-3 columns">
+              <p><button class="btn btn-large btn-primary" id="get-location">Use my location</button></p>
+            </div>
+            <div class="large-1 columns">
+              <p class="or-padding">Or...</p>
+            </div>
+            <div class="large-8 columns">
+                $CountyForm
 
+            </div>
           </div>
+            <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
+          <!--<div id="mapholder"></div> -->
+
+         
+          <hr />
         </div>
-                      <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
-        <!--<div id="mapholder"></div>
+          <div id="loading" style="display:none;">
+            <h2>Loading results...</h2>
+            <img src="{$ThemeDir}/images/ajax-loader.gif" />
+          </div>
+        <div id="results" style="display:none;">
 
-        <p id="demo"></p>-->
+        </div>
+        <% include OtherDirectoryResources %>
         <hr />
-
-        <div id="results"></div>
-        <h2>General resources</h2>
-        <% loop $OtherDirectoryResources %>
-          <h3><a href="$Link">$MenuTitle</a></h3>
-          <p>$Content.Summary(50) <a href="$Link">Continue reading</a></p>
-        <% end_loop %>
-
+        <% include FeedbackLink %>
 
       </section>
       <section class="sec-content hide-print">

@@ -11,6 +11,13 @@
 		padding: 9px 0;
 	}
 
+	#geo-message {
+		font-weight: bold;
+		font-size: 18px;
+		padding: 10px;
+		background: #f3f3f3;
+	}
+
 	.cat-name {
 		text-transform: uppercase;
 		font-size: 13px;
@@ -24,7 +31,7 @@
 
 	.project {
 		@media (min-width: $break-large) {
-			padding: 40px 0;
+			padding-bottom: 20px;
 		}
 	}
 
