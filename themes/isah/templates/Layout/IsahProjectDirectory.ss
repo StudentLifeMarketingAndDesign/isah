@@ -25,13 +25,15 @@
             <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
           <!--<div id="mapholder"></div> -->
 
-          <p id="geo-message"></p>
+          <p id="geo-message" style="display: none;"></p>
           <hr />
         </div>
-
+          <div id="loading" style="display:none;">
+            <h2>Loading results...</h2>
+            <img src="{$ThemeDir}/images/ajax-loader.gif" />
+          </div>
         <div id="results" style="display:none;">
-          <h2>Loading results...</h2>
-          <img src="{$ThemeDir}/images/ajax-loader.gif" />
+
         </div>
         <% include OtherDirectoryResources %>
         <hr />

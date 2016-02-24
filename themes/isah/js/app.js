@@ -1,7 +1,7 @@
 
 
 var geocoder;  // this object will handle the position<->address conversion
-var x = document.getElementById("geo-message");
+var x = $("#geo-message");
 //var countyName;
 
 function getLocation() {
@@ -15,11 +15,48 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(locationSuccess, showError, options); // , {maximumAge:60000, timeout:5000, enableHighAccuracy:true}
     } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
+        x.html("Geolocation is not supported by this browser.");
     }
 }
+function resetSearchForm(){
+ 
+    x.hide();
+    $('#results').hide();
+    $('#directory-form').show();
+    $("#Form_CountyForm_County").val("");
+    if(history.pushState) {
+        history.pushState(null, null, 'directory/');
+    }
+    else {
+        window.location.hash = '';
+    }
+}
+function loadFromHash(){
+  var countyHash = window.location.hash.substr(1);
+ 
+  if(countyHash != ''){
+    $('#loading').show();
+
+    $('#Form_CountyForm_County').val(countyHash);
+    $('#directory-form').hide();
+
+    
+    $('#results').load('directory/county/load/'+ countyHash, function(){
+      $('#loading').hide();
+      $('#results').show();
+    });
+    $('.open-feedback').magnificPopup({
+      type: 'inline',
+      preloader: false,
+    });
 
 
+
+    
+  }else{
+    resetSearchForm();
+  }
+}
 function locationSuccess(position){
       lat = position.coords.latitude;
       lon = position.coords.longitude;
@@ -34,6 +71,7 @@ function locationSuccess(position){
         if (status == google.maps.GeocoderStatus.OK) {
 
           if(accuracy < 10000){
+            $('#loading').show();
             var county = getCounty(results[0]);
            // document.getElementById('County').innerHTML = 'County: ' + county;
 
@@ -42,9 +80,12 @@ function locationSuccess(position){
             //countyName =  convertToSlug(countyName);
             $('#directory-form').hide();
             //alert(countyName);
-            $('#results').show();
+          
 
-            $('#results').load('directory/county/load/'+ countyName);
+            $('#results').load('directory/county/load/'+ countyName, function(){
+              $('#loading').hide();
+              $('#results').show();
+            });
 
                 if(history.pushState) {
                     history.pushState(null, null, 'directory/#'+ countyName);
@@ -53,7 +94,8 @@ function locationSuccess(position){
                     window.location.hash = '#'+ countyName;
                 }
             }else{
-              x.innerHTML = "We couldn't get an accurate location from your device. Please select a county from the dropdown or <a href='directory/county/list'>view a list of counties &rarr;</a>";
+              x.show();
+              x.html("We couldn't get an accurate location from your device. Please select a county from the dropdown or <a href='directory/county/list'>view a list of counties &rarr;</a>");
             }
           
 
@@ -91,7 +133,8 @@ function getGeocodedCountyNameFromPosition(position){
 
 
 function showPosition(position) {
-    x.innerHTML = "Location found."
+    x.show();
+    x.html("Location found.");
     lat = position.coords.latitude;
     lon = position.coords.longitude;
     latlon = new google.maps.LatLng(lat, lon);
@@ -119,19 +162,20 @@ function showPosition(position) {
 }
 
 function showError(error) {
+    x.show();
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
+            x.html("User denied the request for Geolocation.");
             break;
         case error.POSITION_UNAVAILABLE:
 
-            x.innerHTML = "We couldn't find your location because your device may not have allowed us to."
+            x.html("We couldn't find your location because your device may not have allowed us to.");
             break;
         case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
+            x.html("The request to get user location timed out.");
             break;
         case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
+            x.html("An unknown error occurred.");
             break;
     }
 }
@@ -192,46 +236,34 @@ function getCounty(geocodeResponse) {
     // About us page, note the change from about-us to about_us.
     'IsahProjectDirectory': {
       init: function() {
-        var loadingDiv = $('#results').clone();
 
+        window.onpopstate = function (event) {
+          loadFromHash();
+        }
         if(window.location.hash) {
-          var countyHash = window.location.hash.substr(1);
-          $('#Form_CountyForm_County').val(countyHash);
-          $('#directory-form').hide();
-          $('#results').show();
-          $('#results').load('directory/county/load/'+ countyHash);
-          $('.open-feedback').magnificPopup({
-              type: 'inline',
-              preloader: false,
-         });
+          loadFromHash();
         } else {
           // Fragment doesn't exist
         } 
 
           //New search, reset everything.
           $("body").on('click', '#new-search-btn', function(e) {
+              resetSearchForm();
 
-             $('#results').hide();
-             $('#results').replaceWith(loadingDiv.clone());
-             $('#directory-form').show();
-
-             $("#Form_CountyForm_County").val("");
-              if(history.pushState) {
-                  history.pushState(null, null, 'directory/');
-              }
-              else {
-                  window.location.hash = '';
-              }
           });
           //User selected something from the dropdown.
           $('#Form_CountyForm_County').on('change', function(e){
+              $('#loading').show();
               $('#directory-form').hide();
-              $('#results').show();
-              $('#results').load('directory/county/load/'+ $('#Form_CountyForm_County').val());
+              $('#results').load('directory/county/load/'+ $('#Form_CountyForm_County').val(), function(){
+                $('#loading').hide();
+                $('#results').show();
+              });
               $('.open-feedback').magnificPopup({
                   type: 'inline',
                   preloader: false,
              });
+    
               if(history.pushState) {
                   history.pushState(null, null, 'directory/#'+$('#Form_CountyForm_County').val());
               }
