@@ -13,12 +13,12 @@
 						<li <% if $Up.Action == "list" %>class="active"<% end_if %>><a href="directory/county/list" >By County</a></li>
 					</ul>
 			<% end_with %>
-			<% loop OtherDirectoryResources %>
+			<%-- loop OtherDirectoryResources %>
 				<li <% if $LinkOrCurrent = "current" %>class="active"<% end_if %>>
 				<a href="<% if $regularLink %>$regularLink<% else %>$Link<% end_if %>">$MenuTitle</a>
 				</li>
 
-			<% end_loop %>
+			<% end_loop --%>
 
 
 					<% loop IsahProjects %>
