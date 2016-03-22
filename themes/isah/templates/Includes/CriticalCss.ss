@@ -171,10 +171,6 @@ h2, h3{ page-break-after: avoid; }
 .hero-link{ float: right; font-size: 0.8rem; }
 }
 .home-highlights{ background-color: rgb(242, 242, 242); padding: 5em 0px; background-position: initial initial; background-repeat: initial initial; }
-.loading .nav-main-wrapper{ opacity: 0; }
-@media screen and (min-width: 768px){
-.loading .nav-main-wrapper{ opacity: 1; }
-}
 .nav-main-wrapper{ text-align: center; max-height: 500px; border: none; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; box-shadow: inherit; margin-bottom: 0px; background-position: inherit inherit; background-repeat: inherit inherit; }
 @media screen and (max-width: 767px){
 .nav-main-wrapper{ background-image: linear-gradient(rgb(255, 255, 255) 0%, rgb(242, 242, 242) 100%); -webkit-box-shadow: rgba(0, 0, 0, 0.0666667) 0px 1px 4px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; border: 1px solid rgb(212, 212, 212); display: block; max-height: 44px; margin: 0px auto 1em; overflow: hidden; position: relative; width: 100%; background-position: initial initial; background-repeat: initial initial; }
