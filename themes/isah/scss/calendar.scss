@@ -1,39 +1,70 @@
 fieldset {
 	display: inline-block;
+   
 }
+
+#event-photo {
+	padding-bottom: 10px;
+}
+
+#event-calendar-events h2 {
+	margin: 0;
+}
+
+#Form_MonthJumpForm {
+	background-color: white;
+	margin: 2px 2px 2px 2px; 
+	border: 1px solid #ddd;
+
+}	
 
 #Form_MonthJumpForm div {
 	display: inline-block;
-	padding: 2px 2px 2px 2px; 
+	padding: 2px 2px 2px 2px;
+	
 }
 
+.Actions {
+	margin: 0px;
+
+}
 .event-calendar-controls {
 	padding: 5px 5px 5px 5px;
+	text-align: center;
+
 }
 .event-calendar-controls h3 {
 	font-size: 18px;
 	font-family: $body-font;
 
 }
-.event-calendar-quick-nav {
-	list-style: none;
+
+.field {
+    margin-bottom: 0px;
 }
 
 .FBold {
 	margin: 2px 2px 2px 2px; 
-	line-height: 0;
 	text-align: center;
+	background-color: #ECEAE8;
+	padding: 6px;
+	border: 1px solid #ddd;
 }
 
 .calendar-widget-table { 
-	margin: 0 0 2em; 
+	margin: 1px 0 7px 0;
+	//padding: 3px 3px 3px 3px;
+
 }
+
 .calendar-widget-table table {
 	width:100%; 
 	border-collapse:collapse; 
 	border:1px solid #ddd; 
-	border-spacing:0; 
+	border-spacing:0px; 
 	margin:0; 
+
+
 }
 .calendar-widget-table table td, .calendar-widget table thead:first-child tr:first-child th{
 	border: 1px solid #ddd;
@@ -47,11 +78,12 @@ fieldset {
 	font-size:1.2em; 
 }
 
+
 .calendar-widget-table tbody td {
 	background-color:#fff; 
 	padding:4px; 
 	width:13%; 
-	font-size:1em; 
+	font-size:1em;
 }
 
 .calendar-widget-table tbody .calendar-header td {

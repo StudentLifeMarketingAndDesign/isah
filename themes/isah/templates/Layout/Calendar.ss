@@ -17,13 +17,16 @@
 	    	$Form
 	    </article>
 	    <section class="sec-content hide-print">
-	    	<% include SideNav %>
-
-	    	<div class="event-calendar-controls">
+	    
+	   		<div class="event-calendar-controls">
 			  $CalendarWidget
 			  $MonthJumper
-			  <% include QuickNav %>
+			 
 			</div>
+
+	    	<% include SideNav %>
+
+	    	
 
 	    </section>
 	</div>
