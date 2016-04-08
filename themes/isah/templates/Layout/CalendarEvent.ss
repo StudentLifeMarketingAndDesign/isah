@@ -1,4 +1,3 @@
-<% include BackgroundImage %>
 <div class="gradient">
 	<div class="container clearfix">
 		<div class="white-cover"></div>
@@ -6,6 +5,11 @@
 	    	
 			<p><a href="$Parent.Link">&laquo; Back to $Parent.Title</a></p>
 			<div class="vevent">
+			  <% if $Image %>
+			    
+			      <img src="$Image.ScaleWidth(800).URL" id="event-photo">
+			   
+			  <% end_if %> 
 			  <h2 class="summary">$Title</h2>
 
 			  <% with CurrentDate %>

@@ -19,3 +19,6 @@ SSViewer:
 CalendarEvent:
   extensions:
     - EventExtension
+Calendar:
+    timezone: America/Chicago
+    language: EN

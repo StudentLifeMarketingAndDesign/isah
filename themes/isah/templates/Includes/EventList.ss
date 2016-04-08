@@ -1,11 +1,11 @@
 <ul>
 <% loop Events %>
 <li class="vevent clearfix">
-        
-        <% if $Event.Image %>
-          <img src="$Event.Image.URL" id="event-photo">
-        <% end_if %>
-        
+  <% if $Event.Image %>
+    <a class="url" href="$Link">
+      <img src="$Event.Image.ScaleWidth(800).URL" id="event-photo">
+    </a>
+  <% end_if %> 
   <h2 class="summary"><% if Announcement %>$Title<% else %><a class="url" href="$Link">$Event.Title</a><% end_if %></h2>
   <p class="dates">$DateRange <% if AllDay %><% _t('ALLDAY','All Day') %><% else %><% if StartTime %>$TimeRange<% end_if %><% end_if %></p>
   <p><a href="$ICSLink"><% _t('ADD','Add this to Calendar') %></a></p>
@@ -32,4 +32,3 @@
 <% end_if %>
 
 
-<%-- <img class="th" src="$Event.BackgroundImage.CroppedFocusedImage(600,700).URL" alt="Image for $Title" /> --%>
