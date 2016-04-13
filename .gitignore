@@ -47,3 +47,4 @@ silverstripe-cache/
 keys.yml
 addressable/
 secureassets/
+.phpintel
