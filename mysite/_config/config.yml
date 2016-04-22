@@ -16,3 +16,9 @@ IsahResource:
     - Geocodable
 SSViewer: 
   rewrite_hash_links: false
+CalendarEvent:
+  extensions:
+    - EventExtension
+Calendar:
+    timezone: America/Chicago
+    language: EN
