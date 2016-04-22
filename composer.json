@@ -3,7 +3,7 @@
 	"description": "The SilverStripe Framework Installer",
 	"require": {
 		"php": ">=5.3.2",
-		"md/division-project": "dev-3.3.x-userforms3",
+		"md/division-project": "3.3.x",
         "silverstripe-australia/addressable" : "dev-master#f0ee48ebf380e12219699c1713e97368f4b77b42"
 	},
 	"config": {

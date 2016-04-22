@@ -159,6 +159,10 @@ h2, h3{ page-break-after: avoid; }
 @media screen and (max-width: 768px) and (min-width: 480px){
 .hero-article:first-child{ padding-top: 10px; }
 }
+.hero-article img{ display: none; }
+@media screen and (min-width: 768px){
+.hero-article img{ display: block; }
+}
 .hero-title{ margin: 0.2em 0px; }
 .hero-title a{ color: rgb(51, 51, 51); }
 .hero-content{ line-height: 1.5; margin-bottom: 1em; }
@@ -264,4 +268,3 @@ h1{ border: none; font-size: 34px; text-transform: none; }
 @media (min-width: 980px){
 #exit{ display: block; background-image: url(../images/exit.gif); position: fixed; width: 40px; height: 196px; top: 45%; z-index: 101; background-position: 50% 0%; background-repeat: initial initial; }
 }
-img{ padding: 2px; }

@@ -11,12 +11,19 @@
 			   
 			  <% end_if %> 
 			  <h2 class="summary">$Title</h2>
-
 			  <% with CurrentDate %>
 			  <p class="dates">$DateRange<% if StartTime %> $TimeRange<% end_if %></p>
-			  <p><a href="$ICSLink" title="<% _t('CalendarEvent.ADD','Add to Calendar') %>">Add this to Calendar</a></p>
+			  <p><a class="btn btn-small" href="$ICSLink" title="<% _t('CalendarEvent.ADD','Add to Calendar') %>">Add to Calendar</a><% if $Top.FacebookEventLink %>&nbsp;<a href="$Top.FacebookEventLink" class="btn btn-small">View Facebook Event</a><% end_if %></p>
 			  <% end_with %>
-			  
+			  			  <% if $Location %>
+			  	<p><strong>Location:</strong>
+			  		<% if $LocationLink %>
+			  			<a href="$LocationLink" target="_blank">$Location</a>
+			  		<% else %>
+			  			$Location
+			  		<% end_if %>
+			  	</p>
+			  <% end_if %>
 			  $Content
 			  
 			  <% if OtherDates %>

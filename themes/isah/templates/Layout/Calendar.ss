@@ -6,6 +6,7 @@
 	    	$Breadcrumbs
 	    	
 	    	<h1>$Title</h1>
+	    	<h2>$DateHeader</h2>
 			<% if Events %>
 				<div id="event-calendar-events">
 				  <% include EventList %> 
