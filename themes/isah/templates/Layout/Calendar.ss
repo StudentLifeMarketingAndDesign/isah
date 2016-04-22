@@ -8,7 +8,7 @@
 	    	<h1>$Title</h1>
 	    	$Content
 	    	<h2>$DateHeader</h2>
-			<% if Events %>
+			<% if $Events %>
 				<div id="event-calendar-events">
 				  <% include EventList %> 
 				</div>
