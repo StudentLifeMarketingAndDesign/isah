@@ -159,10 +159,6 @@ h2, h3{ page-break-after: avoid; }
 @media screen and (max-width: 768px) and (min-width: 480px){
 .hero-article:first-child{ padding-top: 10px; }
 }
-.hero-article img{ display: none; }
-@media screen and (min-width: 768px){
-.hero-article img{ display: block; }
-}
 .hero-title{ margin: 0.2em 0px; }
 .hero-title a{ color: rgb(51, 51, 51); }
 .hero-content{ line-height: 1.5; margin-bottom: 1em; }
