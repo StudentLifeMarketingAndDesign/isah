@@ -1,4 +1,8 @@
-<% include BackgroundImage %>
+<div id="resourcemap" class="img-container lazy" data-src="$URL" style="background-position: $PercentageX% $PercentageY%; ">
+  <div id="mapholder"></div>
+  <div class="img-fifty-top"></div>
+</div>
+
 <div class="gradient">
   <div class="container clearfix">
     <div class="white-cover"></div>
