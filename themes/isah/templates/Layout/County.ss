@@ -18,6 +18,14 @@
 					<h2><a href="$Link">$Title</a></h2>
 					<% include IsahProjectInfoCard %>
 					<p><a href="$Link" class="btn btn-small btn-primary">More information</a> <% if $Website %><a href="$Website" class="btn btn-small" target="_blank">Visit website &rarr;</a><% end_if %></p>
+						<% if DVResource %>
+							<h2>DV Resource:</h2>
+							$DVResource
+						<% end_if %>
+						<% if ShelterResource %>
+							<h2>Shelter Resource:</h2>
+							$ShelterResource
+						<% end_if %>
 				<% end_with %>
 					
 				<% include NearbyProjectCenters %>

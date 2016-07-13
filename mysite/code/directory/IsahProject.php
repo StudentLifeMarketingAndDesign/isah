@@ -16,6 +16,8 @@ class IsahProject extends Page {
 		'AdditionalServiceAreas'   => 'HTMLText',
 		'Website'                  => 'Text',
 		'Email'                    => 'Text',
+		'DVResource' => 'HTMLText',
+		'ShelterResource' =>'HTMLText'
 	);
 
 	private static $can_be_root = false;
@@ -59,6 +61,9 @@ class IsahProject extends Page {
 		$f->addFieldToTab('Root.Main', new TextField('Fax', 'Fax number'));
 
 		$f->addFieldToTab('Root.Main', new TextareaField('ServicesOffered', 'Services offered'));
+
+		$f->addFieldToTab('Root.Main', new HTMLEditorField('DVResource', 'DV Resource'));
+		$f->addFieldToTab('Root.Main', new HTMLEditorField('ShelterResource', 'Shelter Resource'));
 
 		return $f;
 	}

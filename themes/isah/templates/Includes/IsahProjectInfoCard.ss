@@ -14,4 +14,3 @@
 				
 				<% if $ServicesOffered %><strong>Services offered: </strong>$ServicesOffered <br /><% end_if %>
 			</p>
-		
