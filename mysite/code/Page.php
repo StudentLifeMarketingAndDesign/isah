@@ -31,6 +31,7 @@ class Page_Controller extends ContentController {
 
 	public function init() {
 		parent::init();
+		Requirements::block("event_calendar/css/calendar_widget.css");
 
 	}
 

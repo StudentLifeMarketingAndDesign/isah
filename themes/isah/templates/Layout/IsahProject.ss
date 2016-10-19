@@ -11,6 +11,14 @@
 				<div class="large-7 columns">
 					<% include IsahProjectInfoCard %>
 						<% if $Website %><p><a href="$Website" class="btn btn-small" target="_blank">Visit website &rarr;</a></p><% end_if %>
+						<% if DVResource %>
+							<h2>DV Resource:</h2>
+							$DVResource
+						<% end_if %>
+						<% if ShelterResource %>
+							<h2>Shelter Resource:</h2>
+							$ShelterResource
+						<% end_if %>
 				</div>
 
 				<div class="large-3 large-offset-2 columns">
@@ -26,7 +34,7 @@
 			</div>
 			
 			<% loop $Counties %>
-				<h2 id="$URLSegment">$Title County</h2>
+				<h2 id="$URLSegment">$Title County Resources</h2>
 				<% if $Resources %>
 					<% loop $Categories %>
 						<% include IsahCatCard %>
