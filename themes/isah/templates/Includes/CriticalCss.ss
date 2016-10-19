@@ -101,8 +101,7 @@ input{ width: 206px; }
  input[type="submit"]{ width: auto; }
 input{ margin-left: 0px; width: 100%; }
 html, body{ height: 100%; }
-html{ box-sizing: border-box; }
-*{ box-sizing: inherit; }
+*{ box-sizing: border-box; }
 html, body{ font-size: 15px; }
 body{ background-color: rgb(255, 255, 255); color: rgb(34, 34, 34); cursor: auto; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; font-style: normal; font-weight: normal; line-height: 1.5; margin: 0px; padding: 0px; position: relative; background-position: initial initial; background-repeat: initial initial; }
 img{ max-width: 100%; height: auto; }
@@ -110,16 +109,6 @@ img{ }
 .clearfix::before, .clearfix::after{ content: ' '; display: table; }
 .clearfix::after{ clear: both; }
 img{ display: inline-block; vertical-align: middle; }
-@media print{
-*{ background-color: transparent !important; box-shadow: none !important; color: rgb(0, 0, 0) !important; text-shadow: none !important; background-position: initial initial !important; background-repeat: initial initial !important; }
-a{ text-decoration: underline; }
-a[href]::after{ content: ' (', attr(href), ')'; }
- a[href^="#"]::after{ content: ''; }
- img{ page-break-inside: avoid; }
-img{ max-width: 100% !important; }
-p, h2, h3{ orphans: 3; widows: 3; }
-h2, h3{ page-break-after: avoid; }
-}
 .hero{ border-bottom-width: 5px; border-bottom-style: solid; border-bottom-color: rgb(255, 206, 57); position: relative; padding: 2em 0px; background-color: rgb(255, 255, 255); }
 .hero .container{ height: inherit; position: relative; }
 @media screen and (min-width: 768px){
