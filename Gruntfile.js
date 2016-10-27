@@ -31,6 +31,7 @@ module.exports = function(grunt) {
       js:{
         src: [
           'division-project/build/build.src.js',
+          'themes/isah/bower_components/jquery-auto-complete/jquery.auto-complete.min.js',
             '<%=globalConfig.themeDir %>/js/app.js',
           ],
         dest: '<%=globalConfig.themeDir %>/build/build.src.js'

@@ -1,5 +1,3 @@
-
-
 var geocoder;  // this object will handle the position<->address conversion
 var x = $("#geo-message");
 //var countyName;
@@ -212,12 +210,26 @@ function getCounty(geocodeResponse) {
     'common': {
       init: function() {
      // Show/Hide the directory navigation on-click
-      $('.open-feedback').magnificPopup({
+     $('.open-feedback').magnificPopup({
 
-        type: 'inline',
-        preloader: false,
-        
-      });
+      type: 'inline',
+      preloader: false,
+
+    });
+
+     $('input[name="Search"]').autoComplete({
+      minChars: 2,
+    source: function(term, suggest){
+        term = term.toLowerCase();
+        var choices = ['ActionScript', 'AppleScript', 'Asp','Johnson', 'James', 'Jameson'];
+        var matches = [];
+        for (i=0; i<choices.length; i++)
+            if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]+console.log(choices[i]));
+        suggest(matches);
+    }
+    });
+
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
