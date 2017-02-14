@@ -61,7 +61,7 @@ $customDateTemplates = array(
 	'DiffMonthDiffYear' => '$StartMonthNameShort $StartDayNumberShort, $StartYearLong- $EndMonthNameShort $EndDayNumberShort, $EndYearLong',
 
 	'OneDayHeader' => '$StartMonthNameLong $StartDayNumberShort$StartDaySuffix, $StartYearLong',
-	'MonthHeader' => '$StartMonthNameLong, $StartYear',
+	'MonthHeader' => '$StartMonthNameLong, $StartYearLong',
 	'YearHeader' => '$StartYearLong',
 
 );
