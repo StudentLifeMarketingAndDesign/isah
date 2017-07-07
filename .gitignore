@@ -49,3 +49,6 @@ addressable/
 secureassets/
 .phpintel
 blog-sortable-categories/
+activedirectory/
+multivaluefield/
+queuedjobs/

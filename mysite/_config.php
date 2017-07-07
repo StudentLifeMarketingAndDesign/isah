@@ -66,6 +66,7 @@ $customDateTemplates = array(
 
 );
 
-if (Director::isLive()) {
+Authenticator::set_default_authenticator('SAMLAuthenticator');
+if(Director::isLive()) {
 	Director::forceSSL();
 }
