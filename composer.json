@@ -34,6 +34,11 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/division-analytics"
+
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/ac-json-events"
 
         },

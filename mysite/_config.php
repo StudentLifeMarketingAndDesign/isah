@@ -65,6 +65,7 @@ $customDateTemplates = array(
 	'YearHeader' => '$StartYearLong',
 
 );
+Authenticator::unregister('MemberAuthenticator');
 
 Authenticator::set_default_authenticator('SAMLAuthenticator');
 if(Director::isLive()) {
