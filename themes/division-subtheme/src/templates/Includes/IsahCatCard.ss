@@ -1,0 +1,14 @@
+				<% if $FilteredResources %>
+				<div class="row collapse">
+					<div class="large-12 columns">
+						<h4 class="cat-name">$Title</h4>
+						<ul class="large-block-grid-3">
+							
+								<% loop $FilteredResources %>
+									<li><% include IsahResourceCard %></li>
+								<% end_loop %>
+							
+						</ul>
+					</div>
+				</div>
+				<% end_if %>
