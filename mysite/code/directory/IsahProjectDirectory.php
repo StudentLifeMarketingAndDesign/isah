@@ -55,7 +55,7 @@ class IsahProjectDirectory_Controller extends Page_Controller {
 			));
 
 		$actions = new FieldList(
-			FormAction::create("SubmitCountyForm")->setTitle("View County")->addExtraClass('visuallyhidden')
+			FormAction::create("SubmitCountyForm")->setTitle("View County")->addExtraClass('show-for-sr')
 		);
 
 		$required = new RequiredFields('County');

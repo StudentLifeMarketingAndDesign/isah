@@ -8,7 +8,7 @@
   <% end_if %> 
   <h3 class="summary"><% if Announcement %>$Title<% else %><a class="url" href="$Link">$Event.Title</a><% end_if %></h3>
         <p class="dates">$DateRange<% if StartTime %> $TimeRange<% end_if %></p>
-        <p><a class="btn btn-small" href="$ICSLink" title="<% _t('CalendarEvent.ADD','Add to Calendar') %>">Add to Calendar</a><% if $Event.FacebookEventLink %>&nbsp;<a href="$Event.FacebookEventLink" class="btn btn-small">View Facebook Event</a><% end_if %></p>
+        <p><a class="button" href="$ICSLink" title="<% _t('CalendarEvent.ADD','Add to Calendar') %>">Add to Calendar</a><% if $Event.FacebookEventLink %>&nbsp;<a href="$Event.FacebookEventLink" class="button">View Facebook Event</a><% end_if %></p>
 
     <% if $Event.Location %>
         <p><strong>Location:</strong>

@@ -5,7 +5,29 @@ $Header
 	<% if $BackgroundImage %>
 		<% include FeaturedImage %>
 	<% end_if %>
-	$Breadcrumbs
+
+	<nav aria-label="Breadcrumb" class="breadcrumb no-print">
+		<div class="column row">
+			<ol class="clearfix breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+				<li class="breadcrumb__listitem" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+					<a href="$BaseURL" class="breadcrumb__anchor" itemprop="item"><span class="breadcrumb__name" itemprop="name">Home</span></a><meta itemprop="position" content="1" />
+				</li>
+				
+				
+						<li class="breadcrumb__listitem" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a ></a>
+							<a href="directory/" class="breadcrumb__anchor" aria-current="page" itemprop="item"><span itemprop="name">Directory</span></a><meta itemprop="position" content="2" />
+						</li>
+						<li class="breadcrumb__listitem" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a ></a>
+							<a href="directory/county/list" class="breadcrumb__anchor" aria-current="page" itemprop="item"><span itemprop="name">Counties</span></a><meta itemprop="position" content="3" />
+						</li>
+						<li class="breadcrumb__listitem" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+							<a href="$County.Link" class="breadcrumb__anchor" itemprop="item"><span itemprop="name">$County.Title</span></a><meta itemprop="position" content="3" />
+						</li>
+
+			</ol>
+		</div>
+	</nav>
+
 <% if not $BackgroundImage %>
 	<div class="column row">
 		<div class="main-content__header">
@@ -24,41 +46,32 @@ $BlockArea(BeforeContent)
 			<img class="main-content__main-img" src="$MainImage.ScaleMaxWidth(500).URL" alt="" role="presentation"/>
 		<% end_if %>
 		<div class="main-content__text">
-<ul class="breadcrumbs">
-				<li><a href="$Baseref">Home</a></li>
-				<li><a href="directory/">Directory</a></li>
-				<li><a href="directory/county/list">Counties</a></li>
-				<li><a href="$County.Link" class="active">$County.Title</a></li>
-			</ul>
 			<% with $County %>
 			<h1>$Title County</h1>
-			
-	
-		<% if $Project %>
-				<% with $Project %>
-					<h2><a href="$Link">$Title</a></h2>
-					<% include IsahProjectInfoCard %>
-					<p><a href="$Link" class="btn btn-small btn-primary">More information</a> <% if $Website %><a href="$Website" class="btn btn-small" target="_blank">Visit website &rarr;</a><% end_if %></p>
-						<% if DVResource %>
-							<h2>DV Resource:</h2>
-							$DVResource
-						<% end_if %>
-						<% if ShelterResource %>
-							<h2>Shelter Resource:</h2>
-							$ShelterResource
-						<% end_if %>
-				<% end_with %>
-					
-				<% include NearbyProjectCenters %>
-		<% end_if %>
-		<% if $Categories %>
-		<h3>$Title County Resources:</h3>
-			<% loop $Categories %>
-				<% include IsahCatCard %>
-			<% end_loop %>
-		<% end_if %>
-	<% end_with %>
-
+				<% if $Project %>
+						<% with $Project %>
+							<h2><a href="$Link">$Title</a></h2>
+							<% include IsahProjectInfoCard %>
+							<p><a href="$Link" class="btn btn-small btn-primary">More information</a> <% if $Website %><a href="$Website" class="button" target="_blank">Visit website &rarr;</a><% end_if %></p>
+								<% if DVResource %>
+									<h2>DV Resource:</h2>
+									$DVResource
+								<% end_if %>
+								<% if ShelterResource %>
+									<h2>Shelter Resource:</h2>
+									$ShelterResource
+								<% end_if %>
+						<% end_with %>
+							
+						<% include NearbyProjectCenters %>
+				<% end_if %>
+				<% if $Categories %>
+				<h3>$Title County Resources:</h3>
+					<% loop $Categories %>
+						<% include IsahCatCard %>
+					<% end_loop %>
+				<% end_if %>
+			<% end_with %>
 	<hr />
 		<% include FeedbackLink %>
 		<% include OtherDirectoryResources %>
@@ -70,7 +83,6 @@ $BlockArea(BeforeContent)
 		<% end_if %>
 	</article>
 	<aside class="sidebar dp-sticky">
-		<% include SideNav %>
 		<% include DirectorySideNav %>
 		<% if $SideBarView %>
 			$SideBarView

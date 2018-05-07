@@ -28,15 +28,15 @@ $BlockArea(BeforeContent)
           <p><strong>Thanks for submitting feedback to us, we've received your message.</strong></p>
         <% end_if %>
         <h1>Directory</h1>
-         <p id="geo-message" style="display: none;"></p>
+         <p class="geo-message" id="geo-message" style="display: none;"></p>
         <div id="directory-form">
         $Content
-          <div class="row small-collapse">
+          <div class="row">
             <div class="large-3 columns">
               <p><button class="directory__button" id="get-location">Use my location</button></p>
             </div>
             <div class="large-1 columns">
-              <p class="or-padding">Or...</p>
+              <p class="or-padding">Or</p>
             </div>
             <div class="large-8 columns">
                 $CountyForm
@@ -51,7 +51,7 @@ $BlockArea(BeforeContent)
         </div>
           <div id="loading" style="display:none;">
             <h2>Loading results...</h2>
-            <img src="{$ThemeDir}/images/ajax-loader.gif" />
+            <img src="{$ThemeDir}/dist/images/ajax-loader.gif" />
           </div>
         <div id="results" style="display:none;">
 
@@ -67,7 +67,6 @@ $BlockArea(BeforeContent)
     <% end_if %>
   </article>
   <aside class="sidebar dp-sticky">
-    <% include SideNav %>
     <% include DirectorySideNav %>
     <% if $SideBarView %>
       $SideBarView

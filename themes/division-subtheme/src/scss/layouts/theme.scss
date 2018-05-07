@@ -53,5 +53,39 @@ writing-mode: horizontal-tb;
 }
 
 .geo-message{
-	color: $highlight;
+	background-color: darken($highlight, 20);
+	color: white;
+	padding: rem-calc(10);
+}
+#Form_CountyForm_County_Holder label{
+	@extend .show-for-sr;
+}
+
+
+.project{
+	background: #efefef;
+	padding: rem-calc(10);
+
+	&__cat-name{
+		margin: 0;
+	}
+}
+
+.resource{
+
+	&__cat-name{
+		border-bottom: 2px solid #333;
+		padding-bottom: rem-calc(10);
+	}
+
+}
+
+
+.white-popup-block {
+	position: relative;
+	background: #FFF;
+	padding: 20px;
+	width: auto;
+	max-width: 950px;
+	margin: 20px auto;
 }

@@ -1,21 +1,21 @@
 <% if $County.Resources || $County.Project %>
 	<% with $County %>
-	<p><button class="btn" id="new-search-btn">Start a new search</button></p>
+	<p><button class="button" id="new-search-btn">Start a new search</button></p>
 	<h2>Showing results for <a href="$Link">$Title County</a>:</h2>
 
 		<% if $Project %>
 			<div class="project">
-				<p class="cat-name">Sexual Assault Project for $Title County</p>
+				<h3 class="project__cat-name">Sexual Assault Project for $Title County</h3>
 				<% with $Project %>
-					<h3><a href="$Link">$Title</a></h3>
+					<h4><a href="$Link">$Title</a></h4>
 					<% include IsahProjectInfoCard %>
-					<p><a href="$Link" class="btn btn-small btn-primary">More information</a> <% if $Website %><a href="$Website" class="btn btn-small" target="_blank">Visit website &rarr;</a><% end_if %></p>
+					<p><a href="$Link" class="btn btn-small btn-primary">More information</a> <% if $Website %><a href="$Website" class="button" target="_blank">Visit website &rarr;</a><% end_if %></p>
 						<% if DVResource %>
-							<h4>DV Resource:</h4>
+							<h5>DV Resource:</h5>
 							$DVResource
 						<% end_if %>
 						<% if ShelterResource %>
-							<h4>Shelter Resource:</h4>
+							<h5>Shelter Resource:</h5>
 							$ShelterResource
 						<% end_if %>
 				<% end_with %>
@@ -30,7 +30,7 @@
 		<% end_if %>
 	<% end_with %>
 <% else %>
-<p><button class="btn" id="new-search-btn">Start a new search</button></p>
+<p><button class="button" id="new-search-btn">Start a new search</button></p>
 <h2>No results found for $County.Title County</h2>
 <p> If you feel you've received this message in error, please click the feedback link at the bottom of this page.</p>
 <% end_if %>

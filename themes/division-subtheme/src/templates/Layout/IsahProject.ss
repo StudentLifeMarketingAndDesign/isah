@@ -24,10 +24,10 @@ $BlockArea(BeforeContent)
 			<img class="main-content__main-img" src="$MainImage.ScaleMaxWidth(500).URL" alt="" role="presentation"/>
 		<% end_if %>
 		<div class="main-content__text">
-			<div class="row collapse">
+			<div class="row column">
 				<div class="large-7 columns">
 					<% include IsahProjectInfoCard %>
-						<% if $Website %><p><a href="$Website" class="btn btn-small" target="_blank">Visit website &rarr;</a></p><% end_if %>
+						<% if $Website %><p><a href="$Website" class="button" target="_blank">Visit website &rarr;</a></p><% end_if %>
 						<% if DVResource %>
 							<h2>DV Resource:</h2>
 							$DVResource
@@ -70,7 +70,6 @@ $BlockArea(BeforeContent)
 		<% end_if %>
 	</article>
 	<aside class="sidebar dp-sticky">
-		<% include SideNav %>
 		<% include DirectorySideNav %>
 		<% if $SideBarView %>
 			$SideBarView

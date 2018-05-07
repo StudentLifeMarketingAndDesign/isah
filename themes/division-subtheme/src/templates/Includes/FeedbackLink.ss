@@ -1,3 +1,2 @@
-        Is this information accurate? <a class="open-feedback" href="#feedback-form">Give us feedback &rarr;</a> 
-
-        <% include FeedbackModal %>
+Is this information accurate? <a class="open-feedback" href="#feedback-form">Give us feedback &rarr;</a> 
+<% include FeedbackModal %>

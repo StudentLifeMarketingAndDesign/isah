@@ -35,7 +35,6 @@ $BlockArea(BeforeContent)
 		<% end_if %>
 	</article>
 	<aside class="sidebar dp-sticky">
-		<% include SideNav %>
 		<% include DirectorySideNav %>
 		<% if $SideBarView %>
 			$SideBarView
