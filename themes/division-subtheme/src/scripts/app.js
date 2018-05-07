@@ -60,12 +60,12 @@ function loadFromHash(){
 }
 function locationSuccess(position){
       x.hide();
-      lat = position.coords.latitude;
-      lon = position.coords.longitude;
-      accuracy = position.coords.accuracy;
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      var accuracy = position.coords.accuracy;
 
-      latlon = new google.maps.LatLng(lat, lon);
-      geocoder = new google.maps.Geocoder();
+      var latlon = new google.maps.LatLng(lat, lon);
+      var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'latLng': latlon}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
 
@@ -112,11 +112,11 @@ function convertToSlug(Text)
 }
 function getGeocodedCountyNameFromPosition(position){
     
-      lat = position.coords.latitude;
-      lon = position.coords.longitude;
-      latlon = new google.maps.LatLng(lat, lon);
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      var latlon = new google.maps.LatLng(lat, lon);
 
-      geocoder = new google.maps.Geocoder();
+      var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'latLng': latlon}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
 
@@ -134,15 +134,15 @@ function getGeocodedCountyNameFromPosition(position){
 function showPosition(position) {
     x.show();
     x.html("Location found.");
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
-    latlon = new google.maps.LatLng(lat, lon);
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var latlon = new google.maps.LatLng(lat, lon);
     // okay, now we have the position (as a google maps latLng object), 
     // now we send this position to geocoder
     // @see  https://developers.google.com/maps/documentation/javascript/geocoding
 
 
-    mapholder = document.getElementById('mapholder');
+    var mapholder = document.getElementById('mapholder');
     mapholder.style.height = '250px';
     mapholder.style.width = '500px';
 
