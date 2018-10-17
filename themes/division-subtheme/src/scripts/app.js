@@ -60,12 +60,12 @@ function loadFromHash(){
 }
 function locationSuccess(position){
       x.hide();
-      lat = position.coords.latitude;
-      lon = position.coords.longitude;
-      accuracy = position.coords.accuracy;
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      var accuracy = position.coords.accuracy;
 
-      latlon = new google.maps.LatLng(lat, lon);
-      geocoder = new google.maps.Geocoder();
+      var latlon = new google.maps.LatLng(lat, lon);
+      var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'latLng': latlon}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
 
