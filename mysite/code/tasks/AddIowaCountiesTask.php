@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Dev\BuildTask;
+
 class AddIowaCountiesTask extends BuildTask {
 
 	protected $title       = 'Add all Iowa Counties to the DB';

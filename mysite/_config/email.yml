@@ -1,2 +1,2 @@
-Email:
-  admin_email: ISAH@uiowa.edu
+SilverStripe\Control\Email\Email:
+  admin_email: imu-web@uiowa.edu

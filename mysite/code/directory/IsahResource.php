@@ -1,5 +1,13 @@
 <?php
 
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\TagField\TagField;
+use SilverStripe\Control\Email\Email;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\ORM\DataObject;
+
 class IsahResource extends DataObject {
 
 	private static $db = array(
@@ -36,7 +44,7 @@ class IsahResource extends DataObject {
 		$f->push($catField);
 
 		
-		$f->push(new TextField('Email', 'Email Address'));
+		$f->push(new TextField(Email::class, 'Email Address'));
 		$f->push(new TextField('Website', 'Website URL (please include the http:// or https://)'));
 
 		$addrFields = $this->getAddressFields();
