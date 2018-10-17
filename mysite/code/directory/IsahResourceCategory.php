@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\ORM\DataObject;
+
 class IsahResourceCategory extends DataObject {
 
 	private static $db = array(

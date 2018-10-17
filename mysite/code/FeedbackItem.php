@@ -1,4 +1,6 @@
 <?php
+
+use SilverStripe\ORM\DataObject;
 /**
  * Defines the HomePage page type
  */
@@ -21,10 +23,4 @@ class FeedbackItem extends DataObject {
    //No ID, Email address, Feedback, Specific Page, PageID + Page Title see summary_fields docs
    	            
 
-}
- 
-class FeedbackItem_Controller extends Page_Controller {
-
-	 
-	 
 }

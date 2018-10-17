@@ -1,5 +1,11 @@
 <?php
 
+use SilverStripe\TagField\TagField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Control\Email\Email;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+
 class IsahProject extends Page {
 
 	private static $db = array(
@@ -48,7 +54,7 @@ class IsahProject extends Page {
 		// $f->addFieldToTab("Root.Counties", $countyGridField);
 
 		$f->addFieldToTab('Root.Main', new TextField('Phone', 'Office phone number'));
-		$f->addFieldToTab('Root.Main', new TextField('Email', 'Primary email address'));
+		$f->addFieldToTab('Root.Main', new TextField(Email::class, 'Primary email address'));
 		$f->addFieldToTab('Root.Main', new TextField('Website', 'Website link (please include http:// or https:// in the link)'));
 		$f->addFieldToTab('Root.Main', new TextareaField('Address', 'Address'));
 

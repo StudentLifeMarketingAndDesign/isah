@@ -1,18 +1,5 @@
 ---
-Name: mysite
-After:
-  - 'framework/*'
-  - 'cms/*'
+Name: myproject
 ---
-IsahResource:
-  extensions:
-    - Addressable
-    - Geocodable
-SSViewer: 
-  rewrite_hash_links: false
-CalendarEvent:
-  extensions:
-    - EventExtension
-Calendar:
-    timezone: America/Chicago
-    language: EN
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: mysite

@@ -1,3 +1,32 @@
+.footer-logo-area {
+	border-top: 1px solid #ddd;
+	padding: 20px 0;
+	font-size: 15px;
+	p{
+		margin: 0.6667em 0;
+	}
+
+}
+
+.footer-logo-area__logo{
+	max-height: 160px;
+	display: block;
+	margin: auto;
+}
+
+#mc_embed_signup form {
+	padding: 0;
+	width: 280px;
+}
+
+#mc_embed_signup input {
+	border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+}
+#mc_embed_signup .clear{
+	clear: none;
+	display: inline;
+	float: none;
+}
 .directory__button{
 	-webkit-appearance: none;
 -webkit-box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.0470588) 0px 1px 2px 0px;
@@ -56,6 +85,9 @@ writing-mode: horizontal-tb;
 	background-color: darken($highlight, 20);
 	color: white;
 	padding: rem-calc(10);
+    a{
+        color: #eee;
+    }
 }
 #Form_CountyForm_County_Holder label{
 	@extend .show-for-sr;

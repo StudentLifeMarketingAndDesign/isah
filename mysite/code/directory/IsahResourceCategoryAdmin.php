@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Admin\ModelAdmin;
+
 class IsahResourceCategoryAdmin extends ModelAdmin {
 
 	private static $menu_title = 'Resource Categories';
