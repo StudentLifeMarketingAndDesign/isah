@@ -46,7 +46,7 @@ $BlockArea(BeforeContent)
             <p>If you're having trouble using the form above, <a href="directory/county/list">view a list of resources by county &rarr;</a></p>
           <!--<div id="mapholder"></div> -->
 
-         
+
           <hr />
         </div>
           <div id="loading" style="display:none;">
@@ -79,5 +79,5 @@ $BlockArea(AfterContent)
 </main>
 
 <%-- 41.663475,-91.5378082 --%>
-<script src="//maps.google.com/maps/api/js?sensor=true"></script>
+<script src="//maps.google.com/maps/api/js?sensor=true&key=AIzaSyDrwOxlXCSTCf6WWywio2KZfZkbpmya5X8"></script>
 
