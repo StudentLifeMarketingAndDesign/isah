@@ -85,6 +85,9 @@ writing-mode: horizontal-tb;
 	background-color: darken($highlight, 20);
 	color: white;
 	padding: rem-calc(10);
+    a{
+        color: #eee;
+    }
 }
 #Form_CountyForm_County_Holder label{
 	@extend .show-for-sr;
