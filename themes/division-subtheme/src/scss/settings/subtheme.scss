@@ -1,1 +1,12 @@
 $highlight: #8EC648;
+
+.footer__summary{
+	a{
+		color: white;
+		text-decoration: underline;
+
+		&:hover{
+			color: #eee;
+		}
+	}
+}
