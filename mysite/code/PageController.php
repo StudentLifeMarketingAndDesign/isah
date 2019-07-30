@@ -114,7 +114,7 @@ class PageController extends ContentController {
 		$body .= '<p><strong>County:</strong><br />'.$county.'</p>';
 
 		$email = new Email();
-		$email->setTo($adminEmail);
+		$email->setTo('dustin-quam@uiowa.edu');
 		$email->setFrom($adminEmail);
 		$email->setSubject($subject);
 		$email->setBody($body);
