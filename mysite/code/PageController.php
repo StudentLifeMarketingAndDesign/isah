@@ -62,7 +62,7 @@ class PageController extends ContentController {
 			new TextField('Name', 'Your Name (optional)', $memberName),
 			new EmailField(Email::class, 'Your Email Address (optional)', $memberEmail),
 			DropdownField::create('County', 'If your feedback is related to a specific county please select one from below:', IsahProject::get('County')->map('Title'))->setEmptyString('(None)'),
-			new TextAreaField('Feedback', '<span>*</span>Your Feedback'),
+			new TextAreaField('Feedback', 'Your Feedback'),
 			new HiddenField('PageID', 'PageID', $this->ID)
 			
 		);
@@ -106,7 +106,7 @@ class PageController extends ContentController {
 		if($name){
 			$body = '<p>' . $name . ' (<a href="mailto:'.$userEmail.'">'.$userEmail.'</a>) has submitted feedback.</p>';
 		}else{
-			$body = '<p>An anonymous person has submitted feedback:</p>';
+			$body = '<p>Someone has submitted feedback:</p>';
 		}
 
 

@@ -1,1 +1,1 @@
-<% loop $OtherDirectoryResources %> <h3><a href="$Link">$MenuTitle</a></h3><p>$Content.Summary(50) <a href="$Link">Continue reading</a></p> <% end_loop %>
+<h2>More resources:</h2><ul> <% loop $OtherDirectoryResources %> <li><a href="$Link">$MenuTitle</a></li> <% end_loop %> </ul>
