@@ -27,7 +27,8 @@ class IsahProject extends Page {
 	);
 
 	private static $can_be_root = false;
-	private static $icon        = "cms/images/treeicons/home-file.png";
+
+	private static $icon_class = 'font-icon-book-open'; 
 	private static $has_many    = array(
 		'Counties' => 'County',
 	);

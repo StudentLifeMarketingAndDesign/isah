@@ -12,13 +12,13 @@ class IsahProjectDirectory extends Page {
 	);
 	private static $allowed_children = array(
 		'IsahProject',
-		'IsahDirectoryPage',
+		'IsahDirectoryPage'
 	);
 	private static $defaults = array(
 		'Content' => '',
 	);
 	private static $singular_name = 'Directory';
-	private static $icon          = 'cms/images/treeicons/book-openfolder.gif';
+	private static $icon_class = 'font-icon-book'; 
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();

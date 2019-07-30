@@ -78,6 +78,9 @@ class PageController extends ContentController {
 		//Create form
 		$Form = new Form($this, 'FeedbackForm', $fields, $actions, $validator);
 
+		$Form->enableSpamProtection()
+		->fields()->fieldByName('Captcha')
+		->setTitle("Spam protection");
 		//$protector = SpamProtectorManager::update_form($Form, 'Message', null, "Please enter the following words");
 		//$Form->enableSpamProtection();
 

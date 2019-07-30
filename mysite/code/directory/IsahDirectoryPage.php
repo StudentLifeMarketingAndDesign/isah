@@ -12,7 +12,7 @@ class IsahDirectoryPage extends Page {
 	);
 
 	private static $singular_name = 'Other Directory Resource';
-
+	private static $icon_class = 'font-icon-p-document';
 	public function getCMSFields() {
 		$f = parent::getCMSFields();
 
