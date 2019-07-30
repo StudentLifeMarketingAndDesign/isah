@@ -13,6 +13,7 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\Form;
 use SilverStripe\Core\Convert;
+use SilverStripe\Control\Director;
 
 class PageController extends ContentController {
 
@@ -118,7 +119,7 @@ class PageController extends ContentController {
 		$email->setFrom($adminEmail);
 		$email->setSubject($subject);
 		$email->setBody($body);
-		if (SS_ENVIRONMENT_TYPE == "live") {
+		if (Director::isLive()) {
 			$email->send(); 
 		}
 
